@@ -16,6 +16,20 @@
   align-items: center;
 }
 
+.home-links p {
+  font-family: "Jaldi", serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 50.7px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.home-single-link-wrap {
+  display: flex;
+}
+
 .home-single-link-wrap p {
   font-family: "Jaldi", serif;
   font-size: 25px;
@@ -25,6 +39,12 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #003049;
+}
+
+.line {
+  background-color: #5e7d8c;
+  height: 30px;
+  width: 2px;
 }
 
 .home-login-btn-wrap {
@@ -96,6 +116,7 @@
   justify-content: center;
   align-items: center;
   background: var(--White, #ffffff);
+  cursor: pointer;
 }
 
 .learn-more-btn p {
@@ -120,6 +141,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .free-btn p {
@@ -151,6 +173,13 @@
   flex: 2;
   width: 100%;
   justify-content: center;
+  position: relative;
+}
+
+.bars-img {
+  position: absolute;
+  height: 400px;
+  top: 20px;
 }
 
 .body-text-wrap p {
@@ -184,9 +213,9 @@
   top: 31px;
 }
 
-.footer-text-wrap{
- margin-top: 50px;
- padding-bottom: 20px;
+.footer-text-wrap {
+  margin-top: 50px;
+  padding-bottom: 20px;
 }
 
 .footer-text {

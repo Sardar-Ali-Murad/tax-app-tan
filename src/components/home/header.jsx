@@ -12,18 +12,16 @@ const header = () => {
         </div>
       </div>
       <div className="home-links">
-        <div className="home-single-link-wrap">
-          <p>About</p>
-        </div>
-        <div className="home-single-link-wrap">
-          <p>Pricing</p>
-        </div>
-        <div className="home-single-link-wrap">
-          <p>Contact</p>
-        </div>
-        <div className="home-single-link-wrap">
-          <p>FAQ</p>
-        </div>
+        <p>About</p>
+        <div className="line"></div>
+        <p>Pricing</p>
+        <div className="line"></div>
+
+        <p>Contact</p>
+        <div className="line"></div>
+
+        <p>FAQ</p>
+        <div className="line"></div>
       </div>
       <div className="home-login-btn-wrap">
         <img src={flag} />
