@@ -30,14 +30,14 @@
 .home-login-btn-wrap {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .home-header-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  width: 90px;
   height: 40px;
   border-radius: 4px 0px 0px 0px;
   opacity: 0px;
@@ -47,6 +47,83 @@
 
 .home-login-btn-wrap p {
   font-family: "Archivo", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 21.76px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #ffffff;
+}
+
+.home-hero-wrap {
+  padding: 33px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
+.home-hero-wrap h1 {
+  font-family: "Archivo", serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 65.28px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #01283d;
+}
+
+.home-hero-btn-wrap {
+  display: flex;
+  gap: 11px;
+}
+
+.learn-more-btn {
+  width: 193px;
+  height: 46px;
+  top: 276px;
+  left: 748px;
+  gap: 0px;
+  border-radius: 4px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  border: 1px solid #40b7b0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--White, #ffffff);
+}
+
+.learn-more-btn p {
+  font-family: "Archivo", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 21.76px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #40b7b0;
+}
+
+.free-btn {
+  width: 193px;
+  height: 46px;
+  gap: 0px;
+  opacity: 0px;
+  background-color: #40b7b0;
+  border-radius: 4px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.free-btn p {
+  font-family: Archivo;
   font-size: 20px;
   font-weight: 600;
   line-height: 21.76px;
