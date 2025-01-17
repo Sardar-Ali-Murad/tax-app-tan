@@ -134,8 +134,11 @@
   color: #ffffff;
 }
 
-.home-body-wrap {
+.home-body-main-wrap {
   background: #003049f0;
+}
+
+.home-body-wrap {
   padding: 50px 84px;
   display: flex;
   gap: 100px;
@@ -179,4 +182,21 @@
   right: 61px;
   height: 290px;
   top: 31px;
+}
+
+.footer-text-wrap{
+ margin-top: 50px;
+ padding-bottom: 20px;
+}
+
+.footer-text {
+  font-family: "Archivo", serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 21.76px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #ffffffd4;
 }
