@@ -123,7 +123,7 @@
 }
 
 .free-btn p {
-  font-family: Archivo;
+  font-family: "Archivo", serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 21.76px;
@@ -132,4 +132,51 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #ffffff;
+}
+
+.home-body-wrap {
+  background: #003049f0;
+  padding: 50px 84px;
+  display: flex;
+  gap: 100px;
+}
+
+.body-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex: 2;
+  width: 100%;
+  justify-content: center;
+}
+
+.body-text-wrap p {
+  font-family: "Jaldi", serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 54.08px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #ffffff;
+}
+
+.body-img-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.computer-img {
+  position: absolute;
+  top: -38px;
+  right: -74px;
+  height: 400px;
+}
+
+.mobile-img {
+  position: relative;
+  z-index: 10;
+  right: 61px;
+  height: 290px;
+  top: 31px;
 }
