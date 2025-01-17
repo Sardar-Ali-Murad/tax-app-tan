@@ -142,6 +142,14 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.free-btn img{
+  height: 25px;
+  width: 25px;
 }
 
 .free-btn p {

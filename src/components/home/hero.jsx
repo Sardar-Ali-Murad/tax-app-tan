@@ -1,4 +1,5 @@
 import React from "react";
+import arrow from "../../assets/home/arrow.svg";
 import "./index.css";
 
 const hero = () => {
@@ -13,6 +14,9 @@ const hero = () => {
         </div>
         <div className="free-btn">
           <p>Start for free</p>
+          <div>
+            <img src={arrow} />
+          </div>
         </div>
       </div>
     </div>
