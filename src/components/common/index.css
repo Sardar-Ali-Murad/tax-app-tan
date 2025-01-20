@@ -24,3 +24,35 @@
   height: 50px;
   width: 50px;
 }
+
+@media screen and (max-width: 900px) {
+  .logo-wrapper img {
+    width: 300px;
+  }
+  .common-header-right-wrap {
+    padding: 6px;
+  }
+  .common-header-right-wrap img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .common-header-right-wrap p {
+    margin-top: 6px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .logo-wrapper img {
+    width: 200px;
+  }
+  .common-header-right-wrap img {
+    height: 20px;
+    width: 20px;
+  }
+
+  .common-header-right-wrap p {
+    margin-top: 2px;
+    font-size: 14px;
+  }
+}

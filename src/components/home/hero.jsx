@@ -1,8 +1,10 @@
 import React from "react";
 import arrow from "../../assets/home/arrow.svg";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <div className="home-hero-wrap">
       <div>
@@ -10,10 +12,14 @@ const Hero = () => {
       </div>
       <div className="home-hero-btn-wrap">
         <div className="learn-more-btn">
-          <p>learn more</p>
+          <p className="pointer" onClick={() => navigate("/user-info")}>
+            learn more
+          </p>
         </div>
         <div className="free-btn">
-          <p>Start for free</p>
+          <p className="pointer" onClick={() => navigate("/user-info")}>
+            Start for free
+          </p>
           <div>
             <img src={arrow} />
           </div>
