@@ -5,6 +5,7 @@ import CompanyNameCard from "../components/user-info/company-name-card";
 import CompanyDetailsCard from "../components/user-info/company-details-card";
 import BankUploadCard from "../components/user-info/bank-upload-card";
 import OfficeDeduction from "../components/user-info/office-deduction";
+import FormCard from "../components/user-info/form-card";
 import "./index.css";
 
 const UserInfo = () => {
@@ -46,7 +47,7 @@ const UserInfo = () => {
           ]}
         />
       )}
-      {count === 5 && (
+      {count === 4 && (
         <OfficeDeduction
           setCount={setCount}
           routes={[
@@ -56,6 +57,20 @@ const UserInfo = () => {
             { name: "reporting period", step: 4, disabled: true },
             { name: "type", step: 5, disabled: true },
             { name: "home office", step: 6, disabled: false },
+          ]}
+        />
+      )}
+      {count === 5 && (
+        <FormCard
+          setCount={setCount}
+          routes={[
+            { name: "start", step: 1, disabled: true },
+            { name: "company", step: 2, disabled: true },
+            { name: "verify", step: 3, disabled: true },
+            { name: "reporting period", step: 4, disabled: true },
+            { name: "type", step: 5, disabled: true },
+            { name: "home office", step: 6, disabled: true },
+            { name: "form", step: 6, disabled: false },
           ]}
         />
       )}

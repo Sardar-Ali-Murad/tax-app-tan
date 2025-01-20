@@ -16,6 +16,7 @@
   display: flex;
   align-items: center;
   gap: 2px;
+  flex-wrap: wrap;
 }
 
 .card-positioning-wrap {
@@ -91,6 +92,8 @@
 }
 
 .card-button-wrap .back {
+  font-family: "Jaldi", serif;
+  cursor: pointer;
   width: 130px;
   height: 50px;
   top: 926px;
@@ -103,6 +106,8 @@
 }
 
 .card-button-wrap .next-btn {
+  font-family: "Jaldi", serif;
+  cursor: pointer;
   width: 130px;
   height: 50px;
   top: 926px;
@@ -285,13 +290,120 @@
   grid-column: span 2;
 }
 
+.final-form-header p {
+  font-family: "Jaldi", serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #0030499c;
+}
+
+.final-form-input-wrap {
+  position: relative;
+}
+
+.final-form-input-main-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.final-form-input-main-wrap label {
+  color: #06263e;
+  font-family: "Archivo", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26.11px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.add-expense-wrap p {
+  color: #06263e;
+  font-family: "Archivo", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26.11px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.final-form-input-wrap input {
+  width: 100%;
+  height: 52px;
+  top: 249px;
+  left: 997px;
+  gap: 0px;
+  border-radius: 4px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  background: #c4c4c4;
+  border: 1px solid grey;
+}
+
+.final-form-input-wrap p {
+  position: absolute;
+  top: 8px;
+  right: 17px;
+}
+
+.expenses-label {
+  color: #06263e;
+  font-family: "Archivo", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26.11px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.expense-input-wrap {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.light-label {
+  color: #06263e !important;
+  font-weight: 300 !important;
+}
+
+.add-expense-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 @media screen and (max-width: 900px) {
   .card-positioning-wrap {
     width: 80%;
+  }
+
+  .three-col-grid,
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .single-grid-input-wrap input {
+    width: 94%;
   }
 }
 @media screen and (max-width: 600px) {
   .card-positioning-wrap {
     width: 90%;
+  }
+  .three-col-grid,
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

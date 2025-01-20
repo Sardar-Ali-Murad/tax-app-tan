@@ -149,7 +149,7 @@ const OfficeDeduction = ({ routes, setCount }) => {
           <button className="back" onClick={() => setCount(3)}>
             Back
           </button>
-          <button className="next-btn active-color" onClick={() => setCount(6)}>
+          <button className="next-btn active-color" onClick={() => setCount(5)}>
             <p>Next</p>
             <img src={buttonArrow} />
           </button>{" "}

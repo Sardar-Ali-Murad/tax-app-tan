@@ -59,7 +59,7 @@ const CompanyNameCard = ({ setCount, routes }) => {
         </div>
         <div className="card-button-wrap mt-40">
           <button className="back">Back</button>
-          <button className="next-btn" onClick={() => setCount(1)}>
+          <button className="next-btn active-color" onClick={() => setCount(2)}>
             <p>Next</p>
             <img src={buttonArrow} />
           </button>{" "}
