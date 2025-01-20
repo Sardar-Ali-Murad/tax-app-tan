@@ -36,3 +36,8 @@
 .not-allowed{
   cursor: not-allowed;
 }
+
+.flex-column{
+  flex-direction: column;
+  
+}

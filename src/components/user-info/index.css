@@ -12,7 +12,6 @@
   padding: 40px;
 }
 
-
 .router {
   display: flex;
   align-items: center;
@@ -103,7 +102,7 @@
   background: #ffffff;
 }
 
-.card-button-wrap .next {
+.card-button-wrap .next-btn {
   width: 130px;
   height: 50px;
   top: 926px;
@@ -114,6 +113,16 @@
   background: #dce3e6;
   border: 1px solid #dce3e6;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.card-button-wrap .next-btn img {
+  height: 15px;
+  width: 15px;
+  margin-top: 3px;
 }
 
 .router .inactive {
@@ -174,6 +183,27 @@
 }
 
 /*  */
+
+.company-label {
+  font-family: "Archivo", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26.11px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #003049;
+  margin-bottom: 15px;
+}
+
+.company-label input {
+  margin-right: 14px;
+}
+
+.company-radio-option-wrap {
+  margin: 70px 0px;
+}
 
 @media screen and (max-width: 900px) {
   .card-positioning-wrap {

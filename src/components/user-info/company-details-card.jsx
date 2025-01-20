@@ -1,6 +1,8 @@
 import React from "react";
 import "./index.css";
 import arrowRight from "../../assets/user-info/arrow-right.png";
+import buttonArrow from "../../assets/user-info/button-arrow.png";
+
 
 const CompanyDetailsCard = ({ setCount, routes }) => {
   return (
@@ -65,8 +67,11 @@ const CompanyDetailsCard = ({ setCount, routes }) => {
         </div>
 
         <div className="card-button-wrap mt-40">
-          <button className="back">Back</button>
-          <button className="next active-color">Next</button>
+          <button className="back" onClick={() => setCount(1)}>Back</button>
+          <button className="next-btn active-color" onClick={() => setCount(3)}>
+            <p>Next</p>
+            <img src={buttonArrow} />
+          </button>{" "}
         </div>
       </div>
     </div>
