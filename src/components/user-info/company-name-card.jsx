@@ -2,13 +2,30 @@ import React from "react";
 import "./index.css";
 import arrowRight from "../../assets/user-info/arrow-right.png";
 
-const CompanyNameCard = () => {
+const CompanyNameCard = ({ setCount, routes }) => {
   return (
     <div className="card-positioning-wrap">
       <div className="router">
-        <p className="inactive">start</p>
-        <img src={arrowRight} />
-        <p className="active">HMRC </p>
+        {routes?.map((route, index) => {
+          return (
+            <>
+              <p
+                className={
+                  route?.disabled ? "inactive not-allowed" : "active pointer"
+                }
+                onClick={() => {
+                  if (route?.disabled) {
+                    return;
+                  }
+                  setCount(route?.step);
+                }}
+              >
+                {route?.name}
+              </p>
+              {index !== routes.length - 1 && <img src={arrowRight} />}
+            </>
+          );
+        })}
       </div>
       <div className="main-card-wrap">
         <div>
