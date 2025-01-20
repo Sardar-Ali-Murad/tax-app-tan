@@ -24,6 +24,7 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  cursor: pointer;
 }
 
 .home-single-link-wrap {
@@ -147,7 +148,7 @@
   gap: 10px;
 }
 
-.free-btn img{
+.free-btn img {
   height: 25px;
   width: 25px;
 }

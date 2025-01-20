@@ -1,0 +1,26 @@
+.common-header-wrap {
+  height: 354px;
+  gap: 0px;
+  opacity: 0px;
+  background: linear-gradient(90deg, #003049 0%, #003049 100%);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.common-header-right-wrap {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+}
+
+.common-header-right-wrap p {
+  color: #ffffff;
+  font-family: "Archivo", serif;
+  margin-top: 14px;
+}
+
+.common-header-right-wrap img {
+  height: 50px;
+  width: 50px;
+}

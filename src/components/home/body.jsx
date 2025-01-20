@@ -3,12 +3,12 @@ import mobile from "../../assets/home/mobile.svg";
 import computer from "../../assets/home/computer.svg";
 import bars from "../../assets/home/bars.svg";
 
-const body = () => {
+const Body = () => {
   return (
     <div className="home-body-main-wrap">
       <div className="home-body-wrap">
         <div className="body-text-wrap">
-          <img src={bars} className="bars-img"/>
+          <img src={bars} className="bars-img" />
           <p>
             TaxReady.co.uk is specifically designed for UK small businesses,
             offering streamlined tax filing solutions. Accessible through
@@ -29,4 +29,4 @@ const body = () => {
   );
 };
 
-export default body;
+export default Body;
