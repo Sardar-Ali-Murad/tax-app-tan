@@ -14,12 +14,6 @@ const OfficeDeduction = ({ routes, setCount }) => {
                 className={
                   route?.disabled ? "inactive not-allowed" : "active pointer"
                 }
-                onClick={() => {
-                  if (route?.disabled) {
-                    return;
-                  }
-                  setCount(route?.step);
-                }}
               >
                 {route?.name}
               </p>

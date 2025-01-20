@@ -3,7 +3,6 @@ import "./index.css";
 import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 
-
 const CompanyDetailsCard = ({ setCount, routes }) => {
   return (
     <div className="card-positioning-wrap">
@@ -15,12 +14,6 @@ const CompanyDetailsCard = ({ setCount, routes }) => {
                 className={
                   route?.disabled ? "inactive not-allowed" : "active pointer"
                 }
-                onClick={() => {
-                  if (route?.disabled) {
-                    return;
-                  }
-                  setCount(route?.step);
-                }}
               >
                 {route?.name}
               </p>
@@ -67,7 +60,9 @@ const CompanyDetailsCard = ({ setCount, routes }) => {
         </div>
 
         <div className="card-button-wrap mt-40">
-          <button className="back" onClick={() => setCount(1)}>Back</button>
+          <button className="back" onClick={() => setCount(1)}>
+            Back
+          </button>
           <button className="next-btn active-color" onClick={() => setCount(3)}>
             <p>Next</p>
             <img src={buttonArrow} />

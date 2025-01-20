@@ -15,12 +15,6 @@ const FormCard = ({ routes, setCount }) => {
                 className={
                   route?.disabled ? "inactive not-allowed" : "active pointer"
                 }
-                onClick={() => {
-                  if (route?.disabled) {
-                    return;
-                  }
-                  setCount(route?.step);
-                }}
               >
                 {route?.name}
               </p>
@@ -131,7 +125,9 @@ const FormCard = ({ routes, setCount }) => {
           </div>
         </div>
         <div className="card-button-wrap mt-40">
-          <button className="back" onClick={() => setCount(4)}>Back</button>
+          <button className="back" onClick={() => setCount(4)}>
+            Back
+          </button>
           <button className="next-btn active-color" onClick={() => setCount(1)}>
             <p>Next</p>
             <img src={buttonArrow} />
