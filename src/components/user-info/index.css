@@ -205,6 +205,86 @@
   margin: 70px 0px;
 }
 
+.overflow-details {
+  /* height: 200px; */
+  overflow-y: auto;
+  margin-left: 20px;
+}
+
+.single-grid label {
+  font-family: "Archivo", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.94px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #4a6471;
+  margin-bottom: 10px;
+}
+
+.grid-item label {
+  font-family: "Archivo", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.94px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #4a6471;
+  margin-bottom: 10px;
+}
+
+.grid-text-fields {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.single-grid-input-wrap {
+  position: relative;
+}
+
+.single-grid-input-wrap p {
+  position: absolute;
+  top: 8px;
+  right: 17px;
+}
+.single-grid-input-wrap input {
+  height: 50px;
+  top: 36.5px;
+  gap: 0px;
+  border-radius: 4px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  padding: 4px 6px;
+}
+
+.three-col-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.grid-item:nth-child(1) {
+  grid-column: span 1;
+}
+
+.grid-item:nth-child(2) {
+  grid-column: span 2;
+}
+
 @media screen and (max-width: 900px) {
   .card-positioning-wrap {
     width: 80%;

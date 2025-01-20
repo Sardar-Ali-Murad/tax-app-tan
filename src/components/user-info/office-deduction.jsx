@@ -37,15 +37,112 @@ const OfficeDeduction = ({ routes, setCount }) => {
             calculate the applicable percentage of your utility bills?
           </p>
         </div>
-        <div className="d-flex flex-column company-radio-option-wrap">
+        <div
+          className="d-flex flex-column company-radio-option-wrap"
+          style={{ marginBottom: "0px", marginTop: "30px" }}
+        >
           <label className="company-label">
             <input type="radio" name="example" value="Option 1" />
             Standard deduction £312.00 (recommended){" "}
           </label>
-          <label className="company-label">
+          <label className="company-label" style={{ marginBottom: "0px" }}>
             <input type="radio" name="example" value="Option 1" />
             Percentage{" "}
           </label>
+        </div>
+
+        <div className="overflow-details">
+          <p className="medium">
+            For the percentage option, you must attach invoices for all claimed
+            expenses using the attach button below.
+          </p>
+          <div className="grid-text-fields">
+            <div className="three-col-grid">
+              <div className="single-grid">
+                <label>Your home’s total size </label>
+                <div className="single-grid-input-wrap">
+                  <input />
+                  <p className="medium">m2</p>
+                </div>
+              </div>
+              <div className="single-grid">
+                <label>Your office total size </label>
+                <div className="single-grid-input-wrap">
+                  <input />
+                  <p className="medium">m2</p>
+                </div>
+              </div>
+              <div className="single-grid">
+                <label>Avg.percentage of time </label>
+                <div className="single-grid-input-wrap">
+                  <input />
+                  <p className="medium">%</p>
+                </div>
+              </div>
+            </div>
+            <div className="three-col-grid">
+              <div className="single-grid">
+                <label>Total electricity </label>
+                <div className="single-grid-input-wrap">
+                  <input />
+                  <p className="medium">£</p>
+                </div>
+              </div>
+              <div className="single-grid">
+                <label>Total gas </label>
+                <div className="single-grid-input-wrap">
+                  <input />
+                  <p className="medium">£</p>
+                </div>
+              </div>
+              <div className="single-grid">
+                <label>Total water </label>
+                <div className="single-grid-input-wrap">
+                  <input />
+                  <p className="medium">£</p>
+                </div>
+              </div>
+            </div>
+            <div className="three-col-grid">
+              <div className="single-grid">
+                <label>Total internet & phone </label>
+                <div className="single-grid-input-wrap">
+                  <input />
+                  <p className="medium">£</p>
+                </div>
+              </div>
+              <div className="single-grid">
+                <label>Total rent </label>
+                <div className="single-grid-input-wrap">
+                  <input />
+                  <p className="medium">£</p>
+                </div>
+              </div>
+              <div className="single-grid">
+                <label>Total mortgage interest </label>
+                <div className="single-grid-input-wrap">
+                  <input />
+                  <p className="medium">£</p>
+                </div>
+              </div>
+            </div>
+            <div className="grid-container">
+              <div className="grid-item">
+                <label>Total council tax </label>
+                <div className="single-grid-input-wrap">
+                  <input />
+                  <p className="medium">£</p>
+                </div>
+              </div>
+              <div className="grid-item">
+                <label>Total repairs and maintenance </label>
+                <div className="single-grid-input-wrap">
+                  <input className="w-94" />
+                  <p className="medium">£</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="card-button-wrap mt-40">

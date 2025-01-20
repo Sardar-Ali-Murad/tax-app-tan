@@ -33,11 +33,14 @@
   border: 1px solid #003049 !important;
 }
 
-.not-allowed{
+.not-allowed {
   cursor: not-allowed;
 }
 
-.flex-column{
+.flex-column {
   flex-direction: column;
-  
+}
+
+.w-94 {
+  width: 94%;
 }
