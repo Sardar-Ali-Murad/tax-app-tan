@@ -3,7 +3,7 @@ import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import "./index.css";
 
-const CorporationTaxesCard = ({ routes, setCount }) => {
+const AccessDetailsCard = ({ routes, setCount }) => {
   return (
     <div className="card-positioning-wrap">
       <div className="router">
@@ -24,31 +24,40 @@ const CorporationTaxesCard = ({ routes, setCount }) => {
       </div>
       <div className="main-card-wrap">
         <div>
-          <h1 className="form-title">Corporation Taxes</h1>
+          <h1 className="form-title">Access your details</h1>
           <p className="form-sub-title">
-            TaxReady.co.uk does not currently support corporation tax filing.
-            However, we are actively working on adding this feature, and it will
-            be available soon.
+            HMRC requires you to log in to your Government Gateway through an
+            external link to grant the application access to your filing
+            information.{" "}
+            <span>
+              Rest assured, HMRC prioritizes your privacy and will not share
+              your login credentials with this app.
+            </span>
           </p>
         </div>
         <div>
           <p className="form-second-sub-title">
-            Please enter your email below to be notified when we start
-            supporting corporate tax filing.
+            Click the button below to login to link to your HMRC account:
           </p>
         </div>
-        <div className="form-input-wrap">
-          <label>Your email address</label>
-          <input />
+
+        <div className="form-login-hmrc-btn">
+          <p>Login to HMRC Gateway</p>
+        </div>
+
+        <div>
+          <p className="form-light-sub-title">
+            Click the button below to login to link to your HMRC account:
+          </p>
         </div>
 
         <div className="card-button-wrap mt-40">
-          <button className="back form-back-button" onClick={() => setCount(2)}>
+          <button className="back form-back-button" onClick={() => setCount(3)}>
             Back
           </button>
           <button
             className="next-btn active-color form-next-button"
-            onClick={() => setCount(4)}
+            onClick={() => setCount(5)}
           >
             <p>Next</p>
             <img src={buttonArrow} />
@@ -59,4 +68,4 @@ const CorporationTaxesCard = ({ routes, setCount }) => {
   );
 };
 
-export default CorporationTaxesCard;
+export default AccessDetailsCard;
