@@ -3,7 +3,7 @@ import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import "./index.css";
 
-const InitialCard = ({ routes, setCount }) => {
+const EmployPeopleCard = ({ routes, setCount }) => {
   return (
     <div className="card-positioning-wrap">
       <div className="router">
@@ -24,39 +24,36 @@ const InitialCard = ({ routes, setCount }) => {
       </div>
       <div className="main-card-wrap">
         <div>
-          <h1 className="form-title">Let’s Begin!</h1>
+          <h1 className="form-title">Do you employ people?</h1>
           <p className="form-sub-title">
-            What type of return would you like to complete?
+            Select yes if you have employee’s working under the sole trader
+            company.{" "}
           </p>
           <div className="initial-card-content-wrap">
             <div className="initial-card-checkbox-wrap">
               <input type="radio" />
               <div className="content">
-                <h1>Individual (Sole Trader)</h1>
-                <p>
-                  Select this option if you do not have a company and you are
-                  filing under your own personal Tax Identification Number (TIN)
-                </p>
+                <h1>No</h1>
+                <p>No you do not currently employ people</p>
               </div>
             </div>
             <div className="initial-card-checkbox-wrap">
               <input type="radio" />
               <div className="content">
-                <h1>Individual (Sole Trader)</h1>
-                <p>
-                  Select this option if you do not have a company and you are
-                  filing under your own personal Tax Identification Number (TIN)
-                </p>
+                <h1>Yes</h1>
+                <p>Yes you currently employ people.</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="card-button-wrap mt-40">
-          <button className="back form-back-button not-allowed">Back</button>
+          <button className="back form-back-button" onClick={() => setCount(1)}>
+            Back
+          </button>
           <button
             className="next-btn active-color form-next-button"
-            onClick={() => setCount(2)}
+            onClick={() => setCount(3)}
           >
             <p>Next</p>
             <img src={buttonArrow} />
@@ -67,4 +64,4 @@ const InitialCard = ({ routes, setCount }) => {
   );
 };
 
-export default InitialCard;
+export default EmployPeopleCard;
