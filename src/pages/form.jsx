@@ -6,6 +6,7 @@ import EmployPeopleCard from "../components/form/employ-people-card";
 import CorporationTaxCard from "../components/form/corporation-taxes-card";
 import AccessDetailsCard from "../components/form/access-details-card";
 import ConfirmDetailsCard from "../components/form/confirm-details-card";
+import ReportingPeriodCard from "../components/form/reporting-period-carrd";
 
 import "./index.css";
 
@@ -54,6 +55,17 @@ const Form = () => {
             { name: "start", step: 1, disabled: true },
             { name: "HMRC", step: 2, disabled: true },
             { name: "verify", step: 3, disabled: false },
+          ]}
+        />
+      )}
+      {count === 6 && (
+        <ReportingPeriodCard
+          setCount={setCount}
+          routes={[
+            { name: "start", step: 1, disabled: true },
+            { name: "HMRC", step: 2, disabled: true },
+            { name: "verify", step: 3, disabled: true },
+            { name: "reporting period", step: 4, disabled: false },
           ]}
         />
       )}

@@ -14,21 +14,21 @@ const Header = () => {
         </div>
       </div>
       <div className="home-links">
-        <p onClick={() => navigate("/user-info")}>About</p>
+        <p onClick={() => navigate("/form")}>About</p>
         <div className="line"></div>
-        <p onClick={() => navigate("/user-info")}>Pricing</p>
-        <div className="line"></div>
-
-        <p onClick={() => navigate("/user-info")}>Contact</p>
+        <p onClick={() => navigate("/form")}>Pricing</p>
         <div className="line"></div>
 
-        <p onClick={() => navigate("/user-info")}>FAQ</p>
+        <p onClick={() => navigate("/form")}>Contact</p>
+        <div className="line"></div>
+
+        <p onClick={() => navigate("/form")}>FAQ</p>
         <div className="line"></div>
       </div>
       <div className="home-login-btn-wrap">
         <img src={flag} />
         <div className="home-header-button pointer">
-          <p onClick={() => navigate("/user-info")} className="pointer">
+          <p onClick={() => navigate("/form")} className="pointer">
             Login
           </p>
         </div>

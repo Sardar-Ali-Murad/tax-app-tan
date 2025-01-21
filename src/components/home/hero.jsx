@@ -12,12 +12,12 @@ const Hero = () => {
       </div>
       <div className="home-hero-btn-wrap">
         <div className="learn-more-btn">
-          <p className="pointer" onClick={() => navigate("/user-info")}>
+          <p className="pointer" onClick={() => navigate("/form")}>
             learn more
           </p>
         </div>
         <div className="free-btn">
-          <p className="pointer" onClick={() => navigate("/user-info")}>
+          <p className="pointer" onClick={() => navigate("/form")}>
             Start for free
           </p>
           <div>
