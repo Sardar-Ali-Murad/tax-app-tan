@@ -44,3 +44,7 @@
 .w-94 {
   width: 94%;
 }
+
+.visibility-none{
+  visibility: hidden !important;
+}

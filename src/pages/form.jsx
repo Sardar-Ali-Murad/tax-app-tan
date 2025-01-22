@@ -11,7 +11,7 @@ import BusinessTypeCard from "../components/form/business-type-card";
 import ExpensesCard from "../components/form/expenses-card";
 import FinishedCard from "../components/form/finishes-card";
 import ReviewCard from "../components/form/review-card";
-
+import SubmitCard from "../components/form/submit-card";
 import "./index.css";
 
 const Form = () => {
@@ -126,6 +126,21 @@ const Form = () => {
             { name: "type", step: 5, disabled: true },
             { name: "income/ expenses", step: 6, disabled: true },
             { name: "review", step: 7, disabled: false },
+          ]}
+        />
+      )}
+      {count === 11 && (
+        <SubmitCard
+          setCount={setCount}
+          routes={[
+            { name: "start", step: 1, disabled: true },
+            { name: "HMRC", step: 2, disabled: true },
+            { name: "verify", step: 3, disabled: true },
+            { name: "reporting period", step: 4, disabled: true },
+            { name: "type", step: 5, disabled: true },
+            { name: "income/ expenses", step: 6, disabled: true },
+            { name: "review", step: 7, disabled: true },
+            { name: "pay", step: 8, disabled: false },
           ]}
         />
       )}

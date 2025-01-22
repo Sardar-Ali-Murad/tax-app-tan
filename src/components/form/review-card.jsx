@@ -89,7 +89,7 @@ const ReviewCard = ({ routes, setCount }) => {
           </button>
           <button
             className="next-btn active-color form-next-button"
-            onClick={() => setCount(1)}
+            onClick={() => setCount(11)}
           >
             <p>Next</p>
             <img src={buttonArrow} />
