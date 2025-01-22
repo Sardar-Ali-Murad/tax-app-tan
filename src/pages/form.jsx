@@ -6,12 +6,13 @@ import EmployPeopleCard from "../components/form/employ-people-card";
 import CorporationTaxCard from "../components/form/corporation-taxes-card";
 import AccessDetailsCard from "../components/form/access-details-card";
 import ConfirmDetailsCard from "../components/form/confirm-details-card";
-import ReportingPeriodCard from "../components/form/reporting-period-carrd";
+import ReportingPeriodCard from "../components/form/reporting-period-card";
 import BusinessTypeCard from "../components/form/business-type-card";
 import ExpensesCard from "../components/form/expenses-card";
 import FinishedCard from "../components/form/finishes-card";
 import ReviewCard from "../components/form/review-card";
 import SubmitCard from "../components/form/submit-card";
+import RegisterCard from "../components/form/register-card";
 import "./index.css";
 
 const Form = () => {
@@ -141,6 +142,22 @@ const Form = () => {
             { name: "income/ expenses", step: 6, disabled: true },
             { name: "review", step: 7, disabled: true },
             { name: "pay", step: 8, disabled: false },
+          ]}
+        />
+      )}
+      {count === 12 && (
+        <RegisterCard
+          setCount={setCount}
+          routes={[
+            { name: "start", step: 1, disabled: true },
+            { name: "HMRC", step: 2, disabled: true },
+            { name: "verify", step: 3, disabled: true },
+            { name: "reporting period", step: 4, disabled: true },
+            { name: "type", step: 5, disabled: true },
+            { name: "income/ expenses", step: 6, disabled: true },
+            { name: "review", step: 7, disabled: true },
+            { name: "pay", step: 8, disabled: true },
+            { name: "login", step: 8, disabled: false },
           ]}
         />
       )}
