@@ -13,10 +13,12 @@ import FinishedCard from "../components/form/finishes-card";
 import ReviewCard from "../components/form/review-card";
 import SubmitCard from "../components/form/submit-card";
 import RegisterCard from "../components/form/register-card";
+import VerifyOTPCard from "../components/form/verify-otp-card";
 import "./index.css";
 
 const Form = () => {
   const [count, setCount] = React.useState(1);
+  console.log(count)
   return (
     <div>
       <Header />
@@ -147,6 +149,22 @@ const Form = () => {
       )}
       {count === 12 && (
         <RegisterCard
+          setCount={setCount}
+          routes={[
+            { name: "start", step: 1, disabled: true },
+            { name: "HMRC", step: 2, disabled: true },
+            { name: "verify", step: 3, disabled: true },
+            { name: "reporting period", step: 4, disabled: true },
+            { name: "type", step: 5, disabled: true },
+            { name: "income/ expenses", step: 6, disabled: true },
+            { name: "review", step: 7, disabled: true },
+            { name: "pay", step: 8, disabled: true },
+            { name: "login", step: 8, disabled: false },
+          ]}
+        />
+      )}
+      {count === 13 && (
+        <VerifyOTPCard
           setCount={setCount}
           routes={[
             { name: "start", step: 1, disabled: true },
