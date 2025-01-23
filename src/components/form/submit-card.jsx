@@ -1,7 +1,6 @@
 import React from "react";
 import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
-import search from "../../assets/common/search.png";
 import "./index.css";
 
 const SubmitCard = ({ routes, setCount }) => {

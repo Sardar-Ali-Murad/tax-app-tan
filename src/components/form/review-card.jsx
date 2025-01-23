@@ -1,7 +1,6 @@
 import React from "react";
 import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
-import fillowArrowRight from "../../assets/form/arrow-right.png";
 import progress from "../../assets/form/progress.png";
 import "./index.css";
 

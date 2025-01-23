@@ -746,7 +746,7 @@
 }
 
 .already-user-text p {
-  font-family: Jaldi;
+  font-family: "Jaldi", serif;
   font-size: 30px;
   font-weight: 400;
   text-align: left;
@@ -776,7 +776,7 @@
 
 .create-account-btn,
 .verify-btn p {
-  font-family: Archivo;
+  font-family: "Archivo", serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 26.11px;
@@ -799,7 +799,7 @@
 
 .skip-step-btn,
 .go-back-btn p {
-  font-family: Archivo;
+  font-family: "Archivo", serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 26.11px;
@@ -821,7 +821,7 @@
 }
 
 .resend-code-btn p {
-  font-family: Archivo;
+  font-family: "Archivo", serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 26.11px;
@@ -849,11 +849,157 @@
 
 .remaining-time {
   text-align: center;
-  font-family: Jaldi;
+  font-family: "Jaldi", serif;
   font-size: 30px;
   font-weight: 400;
   line-height: 50.73px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: rgba(0, 48, 73, 1);
+}
+
+.login-dialog-wrap {
+  padding: 40px;
+}
+
+.login-dialog-wrap .login-header h1 {
+  font-family: "Jaldi", serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 67.6px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(0, 48, 73, 1);
+}
+
+.login-dialog-wrap .login-header p {
+  font-family: "Archivo", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 21.76px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(6, 38, 62, 0.53);
+}
+
+.login-dialog-text-fields-wrap {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.login-single-text-field-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.login-single-text-field-wrap label {
+  font-family: "Archivo", serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 26.11px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(6, 38, 62, 1);
+}
+
+.login-dialog-text-fields-wrap input {
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(196, 196, 196, 1) !important;
+  border-radius: 8px;
+  height: 50px;
+}
+
+.login-dialog-btn-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-dialog-btn-wrap .l-btn {
+  width: 235px;
+  height: 46px;
+  gap: 0px;
+  border-radius: 2px;
+  opacity: 0px;
+  background-color: rgba(0, 48, 73, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-dialog-btn-wrap .l-btn p {
+  font-family: "Archivo", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 21.76px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(255, 255, 255, 1);
+}
+
+.login-dialog-forget-password-text {
+  font-family: "Archivo", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.58px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(6, 38, 62, 0.59);
+}
+
+.login-options-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-options-wrap p {
+  font-family: "Archivo", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.58px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(6, 38, 62, 0.59);
+}
+
+.logn-register-option {
+  display: flex;
+  gap: 10px;
+}
+
+.logn-register-option p {
+  font-family: "Archivo", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.58px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(6, 38, 62, 0.68);
+}
+
+.logn-register-option span {
+  font-family: "Archivo", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.58px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgb(0 0 0 / 85%);
 }

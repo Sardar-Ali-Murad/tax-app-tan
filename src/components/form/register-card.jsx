@@ -1,9 +1,11 @@
 import React from "react";
 import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
+import LoginDialog from "./login-dialog";
 import "./index.css";
 
 const RegisterCard = ({ routes, setCount }) => {
+  const [showLoginDialog, setShowLoginDialog] = React.useState(false);
   return (
     <div className="card-positioning-wrap">
       <div className="router">
@@ -22,6 +24,13 @@ const RegisterCard = ({ routes, setCount }) => {
           );
         })}
       </div>
+      {showLoginDialog && (
+        <div className="model-parent">
+          <div className="model-wrap">
+            <LoginDialog setShowLoginDialog={setShowLoginDialog} />
+          </div>
+        </div>
+      )}
       <div className="main-card-wrap">
         <div>
           <h1 className="form-title">Create Account</h1>
@@ -51,7 +60,9 @@ const RegisterCard = ({ routes, setCount }) => {
 
           <div className="already-user-text">
             <p>Already have an account?</p>
-            <span>Login</span>
+            <span className="pointer" onClick={() => setShowLoginDialog(true)}>
+              Login
+            </span>
           </div>
 
           <div className="create-account-btn">
