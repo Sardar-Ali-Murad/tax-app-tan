@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import "./index.css";
 
-const InitialCard = ({ routes, setCount }) => {
+const InitialCard = ({
+  routes,
+  setCount,
+  selectedOption,
+  setSelectedOption,
+}) => {
+  const handleRadioChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
   return (
     <div className="card-positioning-wrap">
       <div className="router">
@@ -30,22 +39,32 @@ const InitialCard = ({ routes, setCount }) => {
           </p>
           <div className="initial-card-content-wrap">
             <div className="initial-card-checkbox-wrap">
-              <input type="radio" />
+              <input
+                type="radio"
+                value="Individual"
+                checked={selectedOption === "Individual"}
+                onChange={handleRadioChange}
+              />
               <div className="content">
-                <h1>Individual (Sole Trader)</h1>
+                <h1>Individual (Self-Assessment)</h1>
                 <p>
                   Select this option if you do not have a company and you are
-                  filing under your own personal Tax Identification Number (TIN)
+                  filing under your own Unique Tax Reference Number (UTR).
                 </p>
               </div>
             </div>
             <div className="initial-card-checkbox-wrap">
-              <input type="radio" />
+              <input
+                type="radio"
+                value="Corporation"
+                checked={selectedOption === "Corporation"}
+                onChange={handleRadioChange}
+              />
               <div className="content">
-                <h1>Individual (Sole Trader)</h1>
+                <h1>Corporation</h1>
                 <p>
-                  Select this option if you do not have a company and you are
-                  filing under your own personal Tax Identification Number (TIN)
+                  Select this option if you are filing under your company number
+                  that you have registered with the HMRC.
                 </p>
               </div>
             </div>
@@ -55,12 +74,23 @@ const InitialCard = ({ routes, setCount }) => {
         <div className="card-button-wrap mt-40">
           <button className="back form-back-button not-allowed">Back</button>
           <button
-            className="next-btn active-color form-next-button"
-            onClick={() => setCount(2)}
+            className={`next-btn  ${
+              selectedOption && "form-next-button active-color"
+            }`}
+            onClick={() => {
+              if (selectedOption) {
+                if (selectedOption === "Individual") {
+                  setCount(4);
+                } else {
+                  setCount(3);
+                }
+              }
+            }}
+            style={{ cursor: selectedOption ? "pointer" : "not-allowed" }}
           >
             <p>Next</p>
             <img src={buttonArrow} />
-          </button>{" "}
+          </button>
         </div>
       </div>
     </div>

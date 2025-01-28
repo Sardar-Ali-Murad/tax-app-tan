@@ -61,12 +61,15 @@ const FinishedCard = ({ routes, setCount }) => {
         </div>
 
         <div className="card-button-wrap mt-40">
-          <button className="back form-back-button" onClick={() => setCount(8)}>
+          <button
+            className="back form-back-button"
+            onClick={() => setCount(13)}
+          >
             Back
           </button>
           <button
             className="next-btn active-color form-next-button"
-            onClick={() => setCount(10)}
+            onClick={() => setCount(1)}
           >
             <p>Next</p>
             <img src={buttonArrow} />

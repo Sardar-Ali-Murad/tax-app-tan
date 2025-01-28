@@ -45,7 +45,16 @@ const ReportingPeriodCard = ({ routes, setCount }) => {
           </div>
         </div>
         <p className="reporting-period-sub-text">
-          If the reporting period is incorrect, please contact the HMRC
+          If the reporting period is incorrect, please
+          <span
+            style={{ fontWeight: "600", marginLeft: "5px", cursor: "pointer" }}
+            onClick={() =>
+              window.open("https://www.gov.uk/contact-hmrc", "__blank")
+            }
+          >
+            contact
+          </span>{" "}
+          the HMRC
         </p>
 
         <div className="card-button-wrap mt-40">

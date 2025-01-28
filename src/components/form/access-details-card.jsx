@@ -47,12 +47,28 @@ const AccessDetailsCard = ({ routes, setCount }) => {
 
         <div>
           <p className="form-light-sub-title">
-            Click the button below to login to link to your HMRC account:
+            If you do not have a HMRC login, please set one up by
+            <span
+              style={{
+                color: "rgba(158, 176, 185, 1)",
+                fontWeight: "600",
+                cursor: "pointer",
+              }}
+              onClick={() =>
+                window.open(
+                  "https://www.gov.uk/log-in-register-hmrc-online-services",
+                  "__blank"
+                )
+              }
+            >
+              {" "}
+              clicking here.
+            </span>
           </p>
         </div>
 
         <div className="card-button-wrap mt-40">
-          <button className="back form-back-button" onClick={() => setCount(3)}>
+          <button className="back form-back-button" onClick={() => setCount(1)}>
             Back
           </button>
           <button

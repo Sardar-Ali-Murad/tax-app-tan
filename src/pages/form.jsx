@@ -18,7 +18,9 @@ import "./index.css";
 
 const Form = () => {
   const [count, setCount] = React.useState(1);
-  console.log(count)
+  const [selectedOption, setSelectedOption] = React.useState("");
+  const [selectedBusinessTypes, setSelectedBusinessTypes] = React.useState([]);
+
   return (
     <div>
       <Header />
@@ -29,12 +31,15 @@ const Form = () => {
         <InitialCard
           setCount={setCount}
           routes={[{ name: "start", step: 1, disabled: false }]}
+          selectedOption={selectedOption}
+          setSelectedOption={setSelectedOption}
         />
       )}
       {count === 2 && (
         <EmployPeopleCard
           setCount={setCount}
           routes={[{ name: "start", step: 1, disabled: false }]}
+          selectedOption={selectedOption}
         />
       )}
       {count === 3 && (
@@ -86,6 +91,9 @@ const Form = () => {
             { name: "reporting period", step: 4, disabled: true },
             { name: "type", step: 5, disabled: false },
           ]}
+          selectedBusinessTypes={selectedBusinessTypes}
+          setSelectedBusinessTypes={setSelectedBusinessTypes}
+          selectedOption={selectedOption}
         />
       )}
       {count === 8 && (

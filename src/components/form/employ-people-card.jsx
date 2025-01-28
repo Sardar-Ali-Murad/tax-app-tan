@@ -3,7 +3,7 @@ import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import "./index.css";
 
-const EmployPeopleCard = ({ routes, setCount }) => {
+const EmployPeopleCard = ({ routes, setCount, selectedOption }) => {
   return (
     <div className="card-positioning-wrap">
       <div className="router">
@@ -48,12 +48,20 @@ const EmployPeopleCard = ({ routes, setCount }) => {
         </div>
 
         <div className="card-button-wrap mt-40">
-          <button className="back form-back-button" onClick={() => setCount(1)}>
+          <button
+            className="back form-back-button"
+            onClick={() => {
+              if (selectedOption === "Individual") {
+                setCount(7);
+              } else {
+              }
+            }}
+          >
             Back
           </button>
           <button
             className="next-btn active-color form-next-button"
-            onClick={() => setCount(3)}
+            onClick={() => setCount(8)}
           >
             <p>Next</p>
             <img src={buttonArrow} />

@@ -82,7 +82,7 @@ const ReviewCard = ({ routes, setCount }) => {
         <div className="card-button-wrap mt-40">
           <button
             className="back form-back-button not-allowed"
-            onClick={() => setCount(9)}
+            onClick={() => setCount(8)}
           >
             Back
           </button>
