@@ -54,6 +54,7 @@ const EmployPeopleCard = ({ routes, setCount, selectedOption }) => {
               if (selectedOption === "Individual") {
                 setCount(7);
               } else {
+                setCount(7);
               }
             }}
           >
