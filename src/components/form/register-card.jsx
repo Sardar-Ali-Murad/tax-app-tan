@@ -2,6 +2,9 @@ import React from "react";
 import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import LoginDialog from "./login-dialog";
+import apple from "../../assets/form/apple.svg";
+import google from "../../assets/form/google.svg";
+import facebook from "../../assets/form/facebook.svg";
 import "./index.css";
 
 const RegisterCard = ({ routes, setCount }) => {
@@ -42,7 +45,15 @@ const RegisterCard = ({ routes, setCount }) => {
 
         <div className="register-form-wrap">
           <div className="register-single-text-field">
-            <label>Full name</label>
+            <div className="register-first-label">
+              <label>Full name</label>
+              <div className="login-options-wrap">
+                <p>or login with</p>
+                <img src={google} />
+                <img src={apple} />
+                <img src={facebook} />
+              </div>
+            </div>
             <input />
           </div>
           <div className="register-single-text-field">

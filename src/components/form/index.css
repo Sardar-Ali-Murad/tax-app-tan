@@ -260,8 +260,9 @@
 
 .business-type-input-wrap input {
   border: 1px solid rgba(196, 196, 196, 1);
-  width: 100%;
+  width: 87%;
   height: 56px;
+  padding: 0px 50px;
 }
 
 .business-type-input-wrap img {
@@ -510,6 +511,12 @@
 .boxes-wrap .tax-due-wrap .para-wrap {
   display: flex;
   gap: 8px;
+}
+
+.boxes-wrap .tax-due-wrap .para-wrap img {
+  height: 30px;
+  width: 30px;
+  margin-top: 6px;
 }
 
 .boxes-wrap .tax-due-wrap .para-wrap p {
@@ -1003,4 +1010,24 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: rgb(0 0 0 / 85%);
+}
+
+.card-number-wrap {
+  position: relative;
+}
+
+.card-number-wrap img {
+  position: absolute;
+  top: 19px;
+  left: 5px;
+  width: 16px;
+}
+
+.card-number-wrap input {
+  padding: 0px 22px;
+}
+
+.register-first-label{
+  display: flex;
+  justify-content: space-between;
 }

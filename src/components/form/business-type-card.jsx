@@ -50,7 +50,7 @@ const BusinessTypeCard = ({
         <div className="business-type-search-wrap">
           <div className="business-type-input-wrap">
             <img src={search} />
-            <input />
+            <input placeholder="search..." />
           </div>
         </div>
 

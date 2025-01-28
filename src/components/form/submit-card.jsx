@@ -1,6 +1,7 @@
 import React from "react";
 import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
+import card from "../../assets/form/card.png";
 import "./index.css";
 
 const SubmitCard = ({ routes, setCount }) => {
@@ -63,7 +64,10 @@ const SubmitCard = ({ routes, setCount }) => {
             </div>
             <div className="payment-input-overlay">
               <p>Credit/ debit card number</p>
-              <input placeholder="xxxx   xxxx   xxx   xxx" />
+              <div className="card-number-wrap">
+                <img src={card} />
+                <input placeholder="xxxx   xxx   xxx" />
+              </div>
             </div>
             <div className="payment-input-overlay">
               <p>Expiry date</p>

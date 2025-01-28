@@ -2,6 +2,7 @@ import React from "react";
 import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import progress from "../../assets/form/progress.png";
+import taxArrow from "../../assets/form/tax-arrow.png";
 import "./index.css";
 
 const ReviewCard = ({ routes, setCount }) => {
@@ -50,7 +51,7 @@ const ReviewCard = ({ routes, setCount }) => {
               <h1>£ 0.00</h1>
               <div className="para-wrap">
                 <p>Learn how to reduce this tax liability</p>
-                <img />
+                <img src={taxArrow} />
               </div>
             </div>
           </div>
