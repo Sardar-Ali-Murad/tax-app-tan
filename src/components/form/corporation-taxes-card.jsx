@@ -3,7 +3,7 @@ import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import "./index.css";
 
-const CorporationTaxesCard = ({ routes, setCount }) => {
+const CorporationTaxesCard = ({ routes, setCount, email, setEmail }) => {
   return (
     <div className="card-positioning-wrap">
       <div className="router">
@@ -39,16 +39,21 @@ const CorporationTaxesCard = ({ routes, setCount }) => {
         </div>
         <div className="form-input-wrap">
           <label>Your email address</label>
-          <input />
+          <input value={email} onChange={(e) => setEmail(e?.target?.value)} />
         </div>
 
         <div className="card-button-wrap mt-40">
-          <button className="back form-back-button" onClick={() => setCount(2)}>
+          <button className="back form-back-button" onClick={() => setCount(1)}>
             Back
           </button>
           <button
-            className="next-btn active-color form-next-button"
-            onClick={() => setCount(4)}
+            className={`next-btn  ${email && "active-color form-next-button"}`}
+            onClick={() => {
+              if (email) {
+                setCount(7);
+              }
+            }}
+            style={{ cursor: email ? "pointer" : "not-allowed" }}
           >
             <p>Next</p>
             <img src={buttonArrow} />

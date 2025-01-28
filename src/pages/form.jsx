@@ -20,6 +20,7 @@ const Form = () => {
   const [count, setCount] = React.useState(1);
   const [selectedOption, setSelectedOption] = React.useState("");
   const [selectedBusinessTypes, setSelectedBusinessTypes] = React.useState([]);
+  const [email, setEmail] = React.useState("");
 
   return (
     <div>
@@ -49,6 +50,8 @@ const Form = () => {
             { name: "start", step: 1, disabled: true },
             { name: "corporation", step: 2, disabled: false },
           ]}
+          email={email}
+          setEmail={setEmail}
         />
       )}
       {count === 4 && (
