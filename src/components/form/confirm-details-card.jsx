@@ -38,7 +38,7 @@ const ConfirmDetailsCard = ({ routes, setCount }) => {
           </div>
           <div className="single-collected-data">
             <h1>Email</h1>
-            <p>jamie@sevenkingdoms.com</p>
+            <p>jamie@.com</p>
           </div>
           <div className="single-collected-data">
             <h1>National Insurance Number (NINO)</h1>
