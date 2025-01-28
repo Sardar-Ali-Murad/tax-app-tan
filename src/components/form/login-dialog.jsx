@@ -24,8 +24,14 @@ const LoginDialog = ({ setShowLoginDialog }) => {
           <input />
         </div>
         <div className="login-dialog-btn-wrap">
-          <div className="l-btn">
-            <p>Login</p>
+          <div className="login-btn-first-wrap">
+            <div className="l-btn">
+              <p>Login</p>
+            </div>
+            <div className="remember-me-wrap">
+              <input type="checkbox" />
+              <p>Remember me</p>
+            </div>
           </div>
 
           <div>
