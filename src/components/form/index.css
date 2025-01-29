@@ -1059,3 +1059,9 @@
   height: 18px;
   width: 18px;
 }
+
+.expiry-date-wrap{
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}

@@ -5,24 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const navigate = useNavigate();
-  const handleCheckout = async () => {
-    try {
-      const response = await fetch(
-        "https://stripe-back-end-chi.vercel.app/create-checkout-session",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
 
-      const { url } = await response.json();
-      window.location.href = url;
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
   return (
     <div className="home-hero-wrap">
       <div>
@@ -30,9 +13,7 @@ const Hero = () => {
       </div>
       <div className="home-hero-btn-wrap">
         <div className="learn-more-btn">
-          <p className="pointer" onClick={handleCheckout}>
-            stripe checkout
-          </p>
+          <p className="pointer">Learn more</p>
         </div>
         <div className="free-btn">
           <p className="pointer" onClick={() => navigate("/form")}>

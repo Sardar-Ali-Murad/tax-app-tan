@@ -5,10 +5,12 @@ import Home from "./pages/home";
 import Form from "./pages/form";
 import Success from "./components/common/success";
 import Failure from "./components/common/failure";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <div>
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

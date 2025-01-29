@@ -71,7 +71,11 @@ const SubmitCard = ({ routes, setCount }) => {
             </div>
             <div className="payment-input-overlay">
               <p>Expiry date</p>
-              <input />
+              <div className="expiry-date-wrap">
+                <input placeholder="MM" />
+                <input placeholder="YYYY" />
+                <input placeholder="123" />
+              </div>
             </div>
             <div className="payment-input-overlay">
               <p>Email</p>
@@ -94,6 +98,21 @@ const SubmitCard = ({ routes, setCount }) => {
                 <input type="checkbox" />
                 <p>I’d like to receive direct marketing email updates.</p>
               </div>{" "}
+            </div>
+            <div
+              className="card-button-wrap mt-40"
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                cursor: "pointer",
+              }}
+            >
+              <button
+                className="back form-back-button"
+                onClick={() => setCount(10)}
+              >
+                Pay
+              </button>
             </div>
           </div>
         </div>
