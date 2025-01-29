@@ -667,14 +667,32 @@
 }
 
 .payment-input-overlay {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: space-between;
   gap: 10px;
   margin-bottom: 33px;
-  align-items: center;
+  align-items: start;
 }
 
 .payment-input-overlay p {
+  font-family: "Archivo", serif;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 21.76px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: rgba(255, 255, 255, 1);
+  flex: 1;
+}
+
+.payment-card-overlay{
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-card-overlay,.payment-input-overlay-terms p{
   font-family: "Archivo", serif;
   font-size: 20px;
   font-weight: 200;
@@ -692,6 +710,16 @@
   border-radius: 4px;
   padding: 0px 10px;
   height: 50px;
+  flex: 2;
+}
+
+.card-element {
+  background-color: rgba(255, 255, 255, 1) !important;
+  border: 1px solid rgba(196, 196, 196, 1) !important;
+  border-radius: 4px;
+  height: 26px;
+  padding: 13px 10px;
+  width: 62%;
 }
 .payment-input-overlay input:focus {
   background-color: rgba(255, 255, 255, 1) !important;
@@ -1060,7 +1088,7 @@
   width: 18px;
 }
 
-.expiry-date-wrap{
+.expiry-date-wrap {
   display: flex;
   gap: 5px;
   flex-direction: column;
