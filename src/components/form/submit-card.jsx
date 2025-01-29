@@ -30,11 +30,14 @@ const CheckoutForm = () => {
     if (!stripe || !elements) return;
 
     setLoading(true);
-    const res = await fetch("http://localhost:4242/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: 20, name, email }),
-    });
+    const res = await fetch(
+      "https://stripe-back-end-chi.vercel.app/create-payment-intent",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: 20, name, email }),
+      }
+    );
     const data = await res.json();
 
     if (data.error) {
@@ -109,11 +112,14 @@ const CheckoutForm = () => {
             <CardElement options={{ style: { base: { fontSize: "16px" } } }} />
           </div>
         </div>
-        <div className="payment-input-overlay-terms" style={{ marginTop: "30px" }}>
+        <div
+          className="payment-input-overlay-terms"
+          style={{ marginTop: "30px" }}
+        >
           <p className="visibility-none">No Visibility</p>
           <div className="payment-terms">
             <input type="checkbox" />
-            <p >
+            <p>
               I agree to the <span>Agreement & Terms</span> , Find out how we
               use and protect your data in our <span> Privacy Policy.</span>
             </p>
