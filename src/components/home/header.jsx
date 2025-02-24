@@ -27,8 +27,8 @@ const Header = ({ setShowLoginDialog }) => {
       </div>
       <div className="home-login-btn-wrap">
         <img src={flag} />
-        <div className="home-header-button pointer">
-          <p onClick={() => setShowLoginDialog(true)} className="pointer">
+        <div className="home-header-button pointer" onClick={() => setShowLoginDialog(true)} >
+          <p className="pointer">
             Login
           </p>
         </div>

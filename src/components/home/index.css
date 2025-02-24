@@ -207,12 +207,6 @@
   position: relative;
 }
 
-.computer-img {
-  position: absolute;
-  top: -38px;
-  right: -74px;
-  height: 400px;
-}
 
 .mobile-img {
   position: relative;

@@ -1,5 +1,4 @@
 import React from "react";
-import mobile from "../../assets/home/mobile.svg";
 import computer from "../../assets/home/computer.svg";
 import bars from "../../assets/home/bars.svg";
 
@@ -18,7 +17,6 @@ const Body = () => {
           <p>Complete your taxes within minutes not hours.</p>
         </div>
         <div className="body-img-wrap">
-          <img src={mobile} className="mobile-img" />
           <img src={computer} className="computer-img" />
         </div>
       </div>

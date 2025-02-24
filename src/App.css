@@ -4,10 +4,15 @@
   padding: 0;
 }
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+img,
+video {
+  max-width: auto !important;
+  height: auto;
+}
 
 .pointer {
   cursor: pointer;
@@ -57,7 +62,7 @@
 .model-parent {
   position: fixed;
   z-index: 100;
-  padding-top: 32px;
+  padding-top: 10px;
   left: 0;
   top: 0px;
   width: 100%;
@@ -76,4 +81,8 @@
   transform: translateX(-50%);
   position: relative;
   border-radius: 10px;
+}
+
+.archivo {
+  font-family: "Archivo", serif;
 }

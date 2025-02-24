@@ -3,7 +3,7 @@ import arrow from "../../assets/home/arrow.svg";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 
-const Hero = () => {
+const Hero = ({ setShowMyProfileDialog }) => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,10 @@ const Hero = () => {
         <h1>Tax Made Simple.</h1>
       </div>
       <div className="home-hero-btn-wrap">
-        <div className="learn-more-btn">
+        <div
+          className="learn-more-btn"
+          onClick={() => setShowMyProfileDialog(true)}
+        >
           <p className="pointer">Learn more</p>
         </div>
         <div className="free-btn">
