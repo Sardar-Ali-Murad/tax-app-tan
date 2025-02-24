@@ -2,10 +2,22 @@ import React from "react";
 import close from "../../assets/close.svg";
 import flag from "../../assets/common/flag.svg";
 import "../form/index.css";
+import DeleteProfile from "./delete-profile-dialog";
 
 const MyProfileDialog = ({ setShowMyProfileDialog }) => {
+  const [showDeleteAccount, setShowDeleteAccount] = React.useState(false);
   return (
     <div className="login-dialog-wrap">
+      {showDeleteAccount && (
+        <div className="model-parent">
+          <div
+            className="model-wrap w-[100%]"
+            style={{ width: "80%", top: "200px" }}
+          >
+            <DeleteProfile setShowDeleteAccount={setShowDeleteAccount} />
+          </div>
+        </div>
+      )}
       <div className="flex items-center gap-[10px] justify-end">
         <img src={flag} />
         <img
@@ -40,11 +52,14 @@ const MyProfileDialog = ({ setShowMyProfileDialog }) => {
           <p>I’d like to receive marketing email updates from TaxReady.uk </p>
         </div>
         <div className="mt-[60px] flex items-center justify-between">
-          <div>
+          <button
+            onClick={() => setShowDeleteAccount(true)}
+            className="pointer"
+          >
             <p className="archivo text-[24px] text-[#D3984E] leading-[26px]">
               Delete account
             </p>
-          </div>
+          </button>
           <div className="flex items-center gap-[16px]">
             <button
               className="border border-[1px] border-[#B7C0C5] h-[67px] w-[162px] archivo text-[#5E7D8C] text-[24px] leading-[26px]"
