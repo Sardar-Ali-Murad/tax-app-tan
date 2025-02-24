@@ -2,14 +2,16 @@ import React from "react";
 import apple from "../../assets/form/apple.svg";
 import google from "../../assets/form/google.svg";
 import facebook from "../../assets/form/facebook.svg";
-import "./index.css";
+import "../form/index.css";
 
 const LoginDialog = ({ setShowLoginDialog }) => {
   return (
     <div className="login-dialog-wrap">
       <div className="login-header">
-        <h1 className="form-title">Login</h1>
-        <p className="form-sub-title">Enter your login details below. </p>
+        <h1 className="form-title">Create Account</h1>
+        <p className="form-sub-title">
+          Would you like to create an account to access this and future returns.
+        </p>
       </div>
 
       <div className="login-dialog-text-fields-wrap">

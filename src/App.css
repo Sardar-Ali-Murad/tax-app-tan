@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .pointer {
   cursor: pointer;
 }
@@ -52,7 +57,7 @@
 .model-parent {
   position: fixed;
   z-index: 100;
-  padding-top: 100px;
+  padding-top: 32px;
   left: 0;
   top: 0px;
   width: 100%;
@@ -65,11 +70,10 @@
 }
 
 .model-wrap {
-  width: 95%;
+  width: 60%;
   background-color: white;
   margin-left: 50%;
   transform: translateX(-50%);
   position: relative;
-  top: 90px;
   border-radius: 10px;
 }

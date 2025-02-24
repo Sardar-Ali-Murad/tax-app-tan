@@ -4,7 +4,7 @@ import flag from "../../assets/common/flag.svg";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 
-const Header = () => {
+const Header = ({ setShowLoginDialog }) => {
   const navigate = useNavigate();
   return (
     <div className="home-header-wrap">
@@ -28,7 +28,7 @@ const Header = () => {
       <div className="home-login-btn-wrap">
         <img src={flag} />
         <div className="home-header-button pointer">
-          <p onClick={() => navigate("/form")} className="pointer">
+          <p onClick={() => setShowLoginDialog(true)} className="pointer">
             Login
           </p>
         </div>
