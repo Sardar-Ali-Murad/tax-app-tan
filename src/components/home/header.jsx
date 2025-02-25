@@ -14,23 +14,24 @@ const Header = ({ setShowLoginDialog }) => {
         </div>
       </div>
       <div className="home-links">
-        <p onClick={() => navigate("/form")}>About</p>
+        <p onClick={() => navigate("/start")}>About</p>
         <div className="line"></div>
-        <p onClick={() => navigate("/form")}>Pricing</p>
-        <div className="line"></div>
-
-        <p onClick={() => navigate("/form")}>Contact</p>
+        <p onClick={() => navigate("/start")}>Pricing</p>
         <div className="line"></div>
 
-        <p onClick={() => navigate("/form")}>FAQ</p>
+        <p onClick={() => navigate("/start")}>Contact</p>
+        <div className="line"></div>
+
+        <p onClick={() => navigate("/start")}>FAQ</p>
         <div className="line"></div>
       </div>
       <div className="home-login-btn-wrap">
         <img src={flag} />
-        <div className="home-header-button pointer" onClick={() => setShowLoginDialog(true)} >
-          <p className="pointer">
-            Login
-          </p>
+        <div
+          className="home-header-button pointer"
+          onClick={() => setShowLoginDialog(true)}
+        >
+          <p className="pointer">Login</p>
         </div>
       </div>
     </div>

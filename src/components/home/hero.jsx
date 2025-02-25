@@ -18,10 +18,8 @@ const Hero = ({ setShowMyProfileDialog }) => {
         >
           <p className="pointer">Learn more</p>
         </div>
-        <div className="free-btn">
-          <p className="pointer" onClick={() => navigate("/form")}>
-            Start for free
-          </p>
+        <div className="free-btn" onClick={() => navigate("/start")}>
+          <p className="pointer">Start for free</p>
           <div>
             <img src={arrow} />
           </div>
