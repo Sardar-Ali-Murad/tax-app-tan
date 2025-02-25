@@ -8,8 +8,8 @@ import {
 } from "@stripe/react-stripe-js";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
+import Progress from "../common/progress";
 import { useNavigate } from "react-router-dom";
 
 const stripePromise = loadStripe(
@@ -63,88 +63,92 @@ const CheckoutForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="payment-details-wrap">
-      <div className="payment-left-overlay">
-        <div className="one-time-payment">
-          <h6>£ 20</h6>
-          <p>One time payment</p>
-        </div>
-        <div className="total-wrap">
-          <div className="sub-total-wrap">
-            <p>Subtotal</p>
-            <p>16.00</p>
+    <div>
+      <form onSubmit={handleSubmit} className="payment-details-wrap">
+        <div className="payment-left-overlay">
+          <div className="one-time-payment">
+            <h6>£ 20</h6>
+            <p>One time payment</p>
           </div>
-          <div className="sub-total-wrap">
-            <p>VAT</p>
-            <p> 4.00</p>
-          </div>
-          <div className="amount-bar"></div>
-          <div className="sub-total-wrap">
-            <p>Total</p>
-            <p>£ 20.00</p>
-          </div>
-        </div>
-      </div>
-      <div className="payment-right-overlay">
-        <h1>Payment details</h1>
-        <div className="payment-input-overlay">
-          <p>Cardholder name</p>
-          <input
-            placeholder="Name on card"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="payment-input-overlay">
-          <p>Email</p>
-          <input
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="payment-card-overlay">
-          <p>Expiry</p>
-          <div className="card-element">
-            <CardElement options={{ style: { base: { fontSize: "16px" } } }} />
+          <div className="total-wrap">
+            <div className="sub-total-wrap">
+              <p>Subtotal</p>
+              <p>16.00</p>
+            </div>
+            <div className="sub-total-wrap">
+              <p>VAT</p>
+              <p> 4.00</p>
+            </div>
+            <div className="amount-bar"></div>
+            <div className="sub-total-wrap">
+              <p>Total</p>
+              <p>£ 20.00</p>
+            </div>
           </div>
         </div>
-        <div
-          className="payment-input-overlay-terms"
-          style={{ marginTop: "30px" }}
-        >
-          <p className="visibility-none">No Visibility</p>
-          <div className="payment-terms">
-            <input type="checkbox" />
-            <p>
-              I agree to the <span>Agreement & Terms</span> , Find out how we
-              use and protect your data in our <span> Privacy Policy.</span>
-            </p>
+        <div className="payment-right-overlay">
+          <h1>Payment details</h1>
+          <div className="payment-input-overlay">
+            <p>Cardholder name</p>
+            <input
+              placeholder="Name on card"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
           </div>
-        </div>
-        <div className="payment-input-overlay-terms">
-          <p className="visibility-none">No Visibility</p>
-          <div className="payment-terms">
-            <input type="checkbox" />
-            <p>I’d like to receive direct marketing email updates.</p>
-          </div>{" "}
-        </div>
-        <div
-          className="card-button-wrap mt-40"
-          style={{ display: "flex", justifyContent: "end" }}
-        >
-          <button
-            type="submit"
-            className="back form-back-button"
-            disabled={loading}
+          <div className="payment-input-overlay">
+            <p>Email</p>
+            <input
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="payment-card-overlay">
+            <p>Expiry</p>
+            <div className="card-element h-[50px]">
+              <CardElement
+                options={{ style: { base: { fontSize: "16px" } } }}
+              />
+            </div>
+          </div>
+          <div
+            className="payment-input-overlay-terms"
+            style={{ marginTop: "30px" }}
           >
-            {loading ? "Processing..." : "Pay"}
-          </button>
+            <p className="visibility-none">No Visibility</p>
+            <div className="payment-terms">
+              <input type="checkbox" />
+              <p>
+                I agree to the <span>Agreement & Terms</span> , Find out how we
+                use and protect your data in our <span> Privacy Policy.</span>
+              </p>
+            </div>
+          </div>
+          <div className="payment-input-overlay-terms">
+            <p className="visibility-none">No Visibility</p>
+            <div className="payment-terms">
+              <input type="checkbox" />
+              <p>I’d like to receive direct marketing email updates.</p>
+            </div>{" "}
+          </div>
+          <div
+            className="card-button-wrap mt-40"
+            style={{ display: "flex", justifyContent: "end" }}
+          >
+            <button
+              type="submit"
+              className="back form-back-button"
+              disabled={loading}
+            >
+              {loading ? "Processing..." : "Pay"}
+            </button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 
@@ -152,6 +156,8 @@ const SubmitCard = () => {
   const navigate = useNavigate();
   return (
     <div className="card-positioning-wrap">
+      <Progress title="73% complete" width="73%" />
+
       <div className="main-card-wrap">
         <div>
           <h1 className="form-title">Pay & Submit</h1>

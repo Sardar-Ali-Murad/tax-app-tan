@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Form from "./pages/form";
 import Success from "./components/common/success";
 import Failure from "./components/common/failure";
 import Start from "./pages/start";
@@ -14,6 +13,8 @@ import EmployPeople from "./pages/employ-people";
 import Expense from "./pages/expense";
 import Review from "./pages/review";
 import CheckOut from "./pages/checkout";
+import RegisterAccount from "./pages/register-account";
+import VerifyAccount from "./pages/verify-account";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 
@@ -26,7 +27,6 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/form" element={<Form />} />
           <Route
             path="/start"
             element={
@@ -53,6 +53,8 @@ const App = () => {
           <Route path="/expenses" element={<Expense />} />
           <Route path="/review" element={<Review />} />
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/register-account" element={<RegisterAccount />} />
+          <Route path="/verify-account" element={<VerifyAccount />} />
           <Route path="/success" element={<Success />} />
           <Route path="/failure" element={<Failure />} />
         </Routes>

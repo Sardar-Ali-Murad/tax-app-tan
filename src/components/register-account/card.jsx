@@ -1,49 +1,33 @@
 import React from "react";
 import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
-import LoginDialog from "./login-dialog";
+// import LoginDialog from "./login-dialog";
 import apple from "../../assets/form/apple.svg";
 import google from "../../assets/form/google.svg";
 import facebook from "../../assets/form/facebook.svg";
-import "./index.css";
+import Progress from "../common/progress";
+import { useNavigate } from "react-router-dom";
 
-const RegisterCard = ({ routes, setCount }) => {
-  const [showLoginDialog, setShowLoginDialog] = React.useState(false);
+const Card = () => {
+  const navigate = useNavigate();
   return (
     <div className="card-positioning-wrap">
-      <div className="router">
-        {routes?.map((route, index) => {
-          return (
-            <React.Fragment key={index}>
-              <p
-                className={
-                  route?.disabled ? "inactive not-allowed" : "active pointer"
-                }
-              >
-                {route?.name}
-              </p>
-              {index !== routes.length - 1 && <img src={arrowRight} />}
-            </React.Fragment>
-          );
-        })}
-      </div>
-      {showLoginDialog && (
-        <div className="model-parent">
-          <div className="model-wrap">
-            <LoginDialog setShowLoginDialog={setShowLoginDialog} />
-          </div>
-        </div>
-      )}
+      <Progress title="82% complete" width="82%" />
       <div className="main-card-wrap">
         <div>
           <h1 className="form-title">Create Account</h1>
           <p className="form-sub-title">
-            Would you like to create an account to access this and future
-            returns.
+            Please create an account to access this and future returns.
           </p>
         </div>
 
         <div className="register-form-wrap">
+          <div className="already-user-text">
+            <p>Already have an account?</p>
+            <span className="pointer" onClick={() => setShowLoginDialog(true)}>
+              Login
+            </span>
+          </div>
           <div className="register-single-text-field">
             <div className="register-first-label">
               <label>Full name</label>
@@ -68,32 +52,18 @@ const RegisterCard = ({ routes, setCount }) => {
             <label>Confirm Password</label>
             <input />
           </div>
-
-          <div className="already-user-text">
-            <p>Already have an account?</p>
-            <span className="pointer" onClick={() => setShowLoginDialog(true)}>
-              Login
-            </span>
-          </div>
-
-          <div className="create-account-btn">
-            <p>Create Account</p>
-          </div>
-          <div className="skip-step-btn">
-            <p>Skip this step</p>
-          </div>
         </div>
 
         <div className="card-button-wrap mt-40">
           <button
             className="back form-back-button"
-            onClick={() => setCount(11)}
+            onClick={() => navigate("/checkout")}
           >
             Back
           </button>
           <button
             className="next-btn active-color form-next-button"
-            onClick={() => setCount(13)}
+            onClick={() => navigate("/verify-account")}
           >
             <p>Next</p>
             <img src={buttonArrow} />
@@ -104,4 +74,4 @@ const RegisterCard = ({ routes, setCount }) => {
   );
 };
 
-export default RegisterCard;
+export default Card;
