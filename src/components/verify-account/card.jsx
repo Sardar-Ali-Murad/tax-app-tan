@@ -1,5 +1,4 @@
 import React from "react";
-import buttonArrow from "../../assets/user-info/button-arrow.png";
 import Progress from "../common/progress";
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +28,10 @@ const Card = () => {
           </div>
           <p className="remaining-time">1:30</p>
 
-          <div className="verify-btn">
+          <div
+            className="verify-btn pointer"
+            onClick={() => navigate("/submit")}
+          >
             <p>Verify</p>
           </div>
           <div
