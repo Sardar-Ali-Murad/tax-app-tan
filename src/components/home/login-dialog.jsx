@@ -7,7 +7,12 @@ import flag from "../../assets/common/flag.svg";
 
 import "../form/index.css";
 
-const LoginDialog = ({ setShowLoginDialog,setShowMyProfileDialog }) => {
+const LoginDialog = ({
+  setShowLoginDialog,
+  setShowMyProfileDialog,
+  setInCorrectLoginDialog,
+  setShowForgotPasswordDialog,
+}) => {
   return (
     <div className="login-dialog-wrap">
       <div className="flex items-center gap-[10px] justify-end">
@@ -34,7 +39,10 @@ const LoginDialog = ({ setShowLoginDialog,setShowMyProfileDialog }) => {
         </div>
         <div className="login-dialog-btn-wrap">
           <div className="login-btn-first-wrap">
-            <div className="l-btn">
+            <div
+              className="l-btn pointer"
+              onClick={() => setInCorrectLoginDialog(true)}
+            >
               <p>Login</p>
             </div>
             <div className="remember-me-wrap">
@@ -43,8 +51,8 @@ const LoginDialog = ({ setShowLoginDialog,setShowMyProfileDialog }) => {
             </div>
           </div>
 
-          <div>
-            <p className="login-dialog-forget-password-text">
+          <div onClick={() => setShowForgotPasswordDialog(true)}>
+            <p className="login-dialog-forget-password-text pointer">
               Forgot Password?
             </p>
           </div>
@@ -60,7 +68,7 @@ const LoginDialog = ({ setShowLoginDialog,setShowMyProfileDialog }) => {
           <span
             onClick={() => {
               setShowLoginDialog(false);
-              setShowMyProfileDialog(true)
+              setShowMyProfileDialog(true);
             }}
             className="pointer"
           >

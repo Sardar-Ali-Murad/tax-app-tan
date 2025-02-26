@@ -16,6 +16,7 @@ import CheckOut from "./pages/checkout";
 import RegisterAccount from "./pages/register-account";
 import VerifyAccount from "./pages/verify-account";
 import Submit from "./pages/submit";
+import Finished from "./pages/finished";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/register-account" element={<RegisterAccount />} />
           <Route path="/verify-account" element={<VerifyAccount />} />
           <Route path="/submit" element={<Submit />} />
+          <Route path="/finished" element={<Finished />} />
           <Route path="/success" element={<Success />} />
           <Route path="/failure" element={<Failure />} />
         </Routes>
