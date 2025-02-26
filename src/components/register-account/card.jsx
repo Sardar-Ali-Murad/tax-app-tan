@@ -1,14 +1,12 @@
 import React from "react";
-import arrowRight from "../../assets/user-info/arrow-right.png";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
-// import LoginDialog from "./login-dialog";
 import apple from "../../assets/form/apple.svg";
 import google from "../../assets/form/google.svg";
 import facebook from "../../assets/form/facebook.svg";
 import Progress from "../common/progress";
 import { useNavigate } from "react-router-dom";
 
-const Card = () => {
+const Card = ({ setShowLoginDialog }) => {
   const navigate = useNavigate();
   return (
     <div className="card-positioning-wrap">
@@ -51,6 +49,25 @@ const Card = () => {
           <div className="register-single-text-field">
             <label>Confirm Password</label>
             <input />
+          </div>
+          <div className="flex items-center gap-[13px]">
+            <input
+              type="chechbox"
+              className="h-[21px] w-[21px] rounded-[2px] border border-[2px] border-[#E1E1E1]"
+            />
+            <p className="jaldi text-[22px] leading-[38px] text-[#0030499C]">
+              I’d like to receive marketing email updates from TaxReady.uk
+            </p>
+          </div>
+          <div className="flex items-center gap-[13px]">
+            <input
+              type="chechbox"
+              className="h-[21px] w-[21px] rounded-[2px] border border-[2px] border-[#E1E1E1]"
+            />
+            <p className="jaldi text-[22px] leading-[38px] text-[#0030499C]">
+              I agree to the Terms & Conditions, Find out how we use and protect
+              your data in our Privacy Policy.{" "}
+            </p>
           </div>
         </div>
 
