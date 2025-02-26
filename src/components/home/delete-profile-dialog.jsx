@@ -2,7 +2,7 @@ import React from "react";
 
 import "../form/index.css";
 
-const DeleteProfile = ({ setShowDeleteAccount }) => {
+const DeleteProfileDialog = ({ setShowDeleteAccount }) => {
   return (
     <div className="login-dialog-wrap">
       <h1 className="jaldi text-[40px] leading-[40px] text-[#003049]">
@@ -26,4 +26,4 @@ const DeleteProfile = ({ setShowDeleteAccount }) => {
   );
 };
 
-export default DeleteProfile;
+export default DeleteProfileDialog;

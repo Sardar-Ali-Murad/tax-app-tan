@@ -6,6 +6,7 @@ import LoginDialog from "../components/register-account/login-dialog";
 import IncorrectLoginDialog from "../components/register-account/incorrect-login-dialog";
 import ForgotPasswordDialog from "../components/register-account/forgot-password-dialog";
 import PasswordResetDialog from "../components/register-account/password-reset-dialog";
+import NewPasswordDialog from "../components/register-account/new-password-dialog";
 import "./index.css";
 
 const RegisterAccount = () => {
@@ -14,6 +15,7 @@ const RegisterAccount = () => {
   const [forgotPasswordDialog, setShowForgotPasswordDialog] =
     React.useState(false);
   const [passwordResetDialog, setPasswordResetDialog] = React.useState(false);
+  const [newPasswordDialog, setNewPasswordDialog] = React.useState(false);
   return (
     <div>
       {showLoginDialog && (
@@ -55,7 +57,16 @@ const RegisterAccount = () => {
           <div className="model-wrap">
             <PasswordResetDialog
               setPasswordResetDialog={setPasswordResetDialog}
+              setNewPasswordDialog={setNewPasswordDialog}
             />
+          </div>
+        </div>
+      )}
+      {newPasswordDialog && (
+        <div className="model-parent">
+          <div className="absolute top-[0px] left-[0px] botton-[0px] right-[0px] bg-[#40B7B0] min-h-[100vh] w-[100%] opacity-[0.14]"></div>
+          <div className="model-wrap">
+            <NewPasswordDialog setNewPasswordDialog={setNewPasswordDialog} />
           </div>
         </div>
       )}

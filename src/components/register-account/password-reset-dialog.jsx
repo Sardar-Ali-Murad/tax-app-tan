@@ -2,7 +2,10 @@ import React from "react";
 
 import "../form/index.css";
 
-const PasswordResetDialog = ({ setPasswordResetDialog }) => {
+const PasswordResetDialog = ({
+  setPasswordResetDialog,
+  setNewPasswordDialog,
+}) => {
   return (
     <div className="login-dialog-wrap">
       <div className="main-card-wrap">
@@ -23,7 +26,10 @@ const PasswordResetDialog = ({ setPasswordResetDialog }) => {
           </div>
           <p className="remaining-time">1:30</p>
 
-          <div className="verify-btn">
+          <div
+            className="verify-btn pointer"
+            onClick={() => setNewPasswordDialog(true)}
+          >
             <p>Verify</p>
           </div>
           <div
