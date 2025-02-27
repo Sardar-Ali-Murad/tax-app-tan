@@ -1,7 +1,6 @@
 import React from "react";
 
 const Progress = ({ title, width }) => {
-  console.log(width)
   return (
     <div className="mb-[12px]">
       <h1 className="jaldi text-[20px] leading-[34px] text-[#FFFFFF]">
