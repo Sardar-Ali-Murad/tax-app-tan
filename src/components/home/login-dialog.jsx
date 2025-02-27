@@ -9,9 +9,9 @@ import "../form/index.css";
 
 const LoginDialog = ({
   setShowLoginDialog,
-  setShowMyProfileDialog,
   setInCorrectLoginDialog,
   setShowForgotPasswordDialog,
+  setRegisterDialog,
 }) => {
   return (
     <div className="login-dialog-wrap">
@@ -68,7 +68,7 @@ const LoginDialog = ({
           <span
             onClick={() => {
               setShowLoginDialog(false);
-              setShowMyProfileDialog(true);
+              setRegisterDialog(true);
             }}
             className="pointer"
           >

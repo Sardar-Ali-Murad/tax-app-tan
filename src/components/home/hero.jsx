@@ -3,7 +3,7 @@ import arrow from "../../assets/home/arrow.svg";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 
-const Hero = ({ setShowMyProfileDialog }) => {
+const Hero = ({ setShowLoginDialog }) => {
   const navigate = useNavigate();
 
   return (
@@ -14,7 +14,7 @@ const Hero = ({ setShowMyProfileDialog }) => {
       <div className="home-hero-btn-wrap">
         <div
           className="learn-more-btn"
-          onClick={() => setShowMyProfileDialog(true)}
+          onClick={() => setShowLoginDialog(true)}
         >
           <p className="pointer">Learn more</p>
         </div>

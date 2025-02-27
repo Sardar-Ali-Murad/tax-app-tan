@@ -373,7 +373,7 @@
   border-radius: 4px;
   border: 1px 0px 0px 0px;
   opacity: 0px;
-  border: 1px solid #C4C4C4;
+  border: 1px solid #c4c4c4;
 }
 
 .final-form-input-wrap p {
@@ -689,12 +689,13 @@
   flex: 1;
 }
 
-.payment-card-overlay{
+.payment-card-overlay {
   display: flex;
   justify-content: space-between;
 }
 
-.payment-card-overlay,.payment-input-overlay-terms p{
+.payment-card-overlay,
+.payment-input-overlay-terms p {
   font-family: "Archivo", serif;
   font-size: 20px;
   font-weight: 200;
@@ -971,6 +972,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 4px;
 }
 
 .login-dialog-btn-wrap .l-btn p {

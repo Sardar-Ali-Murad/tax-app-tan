@@ -8,6 +8,7 @@ import IncorrectLoginDialog from "../components/register-account/incorrect-login
 import ForgotPasswordDialog from "../components/register-account/forgot-password-dialog";
 import PasswordResetDialog from "../components/register-account/password-reset-dialog";
 import NewPasswordDialog from "../components/register-account/new-password-dialog";
+import RegisterDialog from "../components/home/register-dialog";
 
 const Home = () => {
   const [showLoginDialog, setShowLoginDialog] = React.useState(false);
@@ -17,6 +18,7 @@ const Home = () => {
     React.useState(false);
   const [passwordResetDialog, setPasswordResetDialog] = React.useState(false);
   const [newPasswordDialog, setNewPasswordDialog] = React.useState(false);
+  const [registerDialog, setRegisterDialog] = React.useState(false);
   return (
     <div>
       {showLoginDialog && (
@@ -25,9 +27,9 @@ const Home = () => {
           <div className="model-wrap">
             <LoginDialog
               setShowLoginDialog={setShowLoginDialog}
-              setShowMyProfileDialog={setShowMyProfileDialog}
               setInCorrectLoginDialog={setInCorrectLoginDialog}
               setShowForgotPasswordDialog={setShowForgotPasswordDialog}
+              setRegisterDialog={setRegisterDialog}
             />
           </div>
         </div>
@@ -80,8 +82,22 @@ const Home = () => {
           </div>
         </div>
       )}
-      <Header setShowLoginDialog={setShowLoginDialog} />
-      <Hero setShowMyProfileDialog={setShowMyProfileDialog} />
+      {registerDialog && (
+        <div className="model-parent">
+          <div className="absolute top-[0px] left-[0px] botton-[0px] right-[0px] bg-[#40B7B0] min-h-[100vh] w-[100%] opacity-[0.14]"></div>
+          <div className="model-wrap">
+            <RegisterDialog
+              setRegisterDialog={setRegisterDialog}
+              setShowLoginDialog={setShowLoginDialog}
+            />
+          </div>
+        </div>
+      )}
+      <Header
+        setShowLoginDialog={setShowLoginDialog}
+        setShowMyProfileDialog={setShowMyProfileDialog}
+      />
+      <Hero setShowLoginDialog={setShowLoginDialog} />
       <Body />
     </div>
   );
