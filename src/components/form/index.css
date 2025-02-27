@@ -773,10 +773,12 @@
 }
 
 .register-single-text-field input {
+  font-family: "Archivo", serif;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 1) !important;
   border: 1px solid rgba(196, 196, 196, 1) !important;
   height: 50px;
+  padding: 10px 20px;
 }
 
 .already-user-text {
@@ -954,6 +956,8 @@
   border: 1px solid rgba(196, 196, 196, 1) !important;
   border-radius: 8px;
   height: 50px;
+  padding: 10px 20px;
+  font-family: "Archivo", serif;
 }
 
 .login-dialog-btn-wrap {
