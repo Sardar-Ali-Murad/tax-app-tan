@@ -61,7 +61,7 @@ const Card = ({ selectedOption, setSelectedOption }) => {
           </button>
           <button
             className={`next-btn  ${
-              selectedOption && "form-next-button active-color"
+              selectedOption && "form-next-button active-color text-[24px]"
             }`}
             style={{ cursor: selectedOption ? "pointer" : "not-allowed" }}
             onClick={() =>
@@ -74,7 +74,7 @@ const Card = ({ selectedOption, setSelectedOption }) => {
             }
           >
             <p>Next</p>
-            <img src={buttonArrow} />
+            <img src={buttonArrow} className="w-[24px] h-[24px]" />
           </button>
         </div>
       </div>

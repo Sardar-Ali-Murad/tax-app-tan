@@ -62,12 +62,12 @@ const MyProfileDialog = ({ setShowMyProfileDialog }) => {
           </button>
           <div className="flex items-center gap-[16px]">
             <button
-              className="border border-[1px] border-[#B7C0C5] h-[67px] w-[162px] archivo text-[#5E7D8C] text-[24px] leading-[26px]"
+              className="border border-[1px] border-[#B7C0C5] rounded-[4px] h-[67px] w-[162px] archivo text-[#5E7D8C] text-[24px] leading-[26px]"
               onClick={() => setShowMyProfileDialog(false)}
             >
               Cancel
             </button>
-            <button className="border border-[1px] border-[#B7C0C5] h-[67px] w-[162px] archivo text-[#FFFFFF] text-[24px] bg-[#003049] leading-[26px]">
+            <button className="border border-[1px] w-[200px] border-[#003049] rounded-[4px] h-[67px] w-[162px] archivo text-[#FFFFFF] text-[24px] bg-[#003049] leading-[26px]">
               Save changes
             </button>
           </div>

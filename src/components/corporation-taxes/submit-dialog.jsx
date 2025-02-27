@@ -14,12 +14,12 @@ const SubmitDialog = ({ setShowSubmitDialog }) => {
       </h1>
       <div className="flex items-center gap-[16px] mt-[50px] justify-between">
         <button
-          className="border border-[1px] border-[#B7C0C5] h-[50px] w-[162px] archivo text-[#5E7D8C] text-[16px] leading-[26px]"
+          className="border border-[1px] border-[#B7C0C5] rounded-[4px] h-[50px] w-[162px] archivo text-[#5E7D8C] text-[16px] leading-[26px]"
           onClick={() => setShowSubmitDialog(false)}
         >
           Back
         </button>
-        <button className="border border-[1px] pointer border-[#B7C0C5] h-[50px] w-[162px] archivo text-[#FFFFFF] text-[16px] bg-[#003049] leading-[26px]">
+        <button className="border w-[200px] border-[1px] pointer rounded-[4px] border-[#003049] h-[50px] w-[162px] archivo text-[#FFFFFF] text-[16px] bg-[#003049] leading-[26px]">
           Return to Home Page{" "}
         </button>
       </div>
