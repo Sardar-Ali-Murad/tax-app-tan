@@ -2,7 +2,10 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
-import { setupRegister } from "../../global-redux/reducers/auth/slice";
+import {
+  setupRegister,
+  resetAuthAddSuccess,
+} from "../../global-redux/reducers/auth/slice";
 import apple from "../../assets/form/apple.svg";
 import google from "../../assets/form/google.svg";
 import facebook from "../../assets/form/facebook.svg";
@@ -11,7 +14,7 @@ import "../form/index.css";
 
 const RegisterDialog = ({ setShowLoginDialog, setRegisterDialog }) => {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state?.auth);
+  const { loading, authAddSuccess } = useSelector((state) => state?.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -37,10 +40,18 @@ const RegisterDialog = ({ setShowLoginDialog, setRegisterDialog }) => {
         .required("Confirm password is required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
-      dispatch(setupRegister(values));
+      if (!loading) {
+        dispatch(setupRegister(values));
+      }
     },
   });
+
+  React.useEffect(() => {
+    if (authAddSuccess) {
+      dispatch(resetAuthAddSuccess());
+      setRegisterDialog(false);
+    }
+  }, [authAddSuccess]);
 
   return (
     <div className="login-dialog-wrap">

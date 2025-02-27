@@ -42,6 +42,7 @@ export const slice = createSlice({
       })
       .addCase(setupLogin.rejected, (state) => {
         state.loading = false;
+        toast.error("An error has occurred. Please try again later.");
       });
     // Handle Register
     builder
@@ -55,6 +56,7 @@ export const slice = createSlice({
       })
       .addCase(setupRegister.rejected, (state) => {
         state.loading = false;
+        toast.error("An error has occurred. Please try again later.");
       });
   },
 });

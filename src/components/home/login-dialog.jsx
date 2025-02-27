@@ -7,7 +7,10 @@ import facebook from "../../assets/form/facebook.svg";
 import close from "../../assets/close.svg";
 import flag from "../../assets/common/flag.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { setupLogin } from "../../global-redux/reducers/auth/slice";
+import {
+  setupLogin,
+  resetAuthAddSuccess,
+} from "../../global-redux/reducers/auth/slice";
 import "../form/index.css";
 
 const LoginDialog = ({
@@ -17,7 +20,7 @@ const LoginDialog = ({
   setRegisterDialog,
 }) => {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state?.auth);
+  const { loading, authAddSuccess } = useSelector((state) => state?.auth);
 
   const formik = useFormik({
     initialValues: {
@@ -38,6 +41,14 @@ const LoginDialog = ({
       dispatch(setupLogin(values));
     },
   });
+
+  React.useEffect(() => {
+    if (authAddSuccess) {
+      dispatch(resetAuthAddSuccess());
+      setRegisterDialog(false);
+      setShowLoginDialog(false);
+    }
+  }, [authAddSuccess]);
 
   return (
     <div className="login-dialog-wrap">
