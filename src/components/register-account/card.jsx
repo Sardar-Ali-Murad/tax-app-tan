@@ -131,6 +131,12 @@ const Card = ({ setShowLoginDialog }) => {
                 protect your data in our Privacy Policy.{" "}
               </p>
             </div>
+            <button
+            type="submit"
+              className="next-btn active-color form-next-button text-[#FFFF] h-[60px]"
+            >
+              <p>Register</p>
+            </button>
           </div>
 
           <div className="card-button-wrap mt-40">
