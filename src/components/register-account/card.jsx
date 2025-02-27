@@ -142,7 +142,7 @@ const Card = ({ setShowLoginDialog }) => {
               Back
             </button>
             <button
-              type="submit"
+              onClick={() => navigate("/verify-account")}
               className="next-btn active-color form-next-button"
             >
               <p>Next</p>
