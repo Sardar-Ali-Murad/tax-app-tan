@@ -13,7 +13,7 @@ const Card = () => {
   const nino = sessionStorage.getItem("nino") || "";
   const handleNext = async () => {
     await axios.get(
-      `${BASE_URL}/api/external/individualCalculations?nino=${nino}&token=${token}&taxYear=2024-25&calculationType=in-year`,
+      `${BASE_URL}/api/external/individualCalculationsGetId?nino=${nino}&token=${token}&taxYear=2024-25&calculationType=in-year`,
       {
         headers: {
           "ngrok-skip-browser-warning": "true",
