@@ -2,29 +2,50 @@ import React from "react";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import Progress from "../common/progress";
 import add from "../../assets/user-info/add.png";
+import { BASE_URL } from "../../config/constants";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Card = () => {
   const navigate = useNavigate();
+
+  const token = sessionStorage.getItem("code") || "";
+  const nino = sessionStorage.getItem("nino") || "";
+  const handleNext = async () => {
+    await axios.get(
+      `${BASE_URL}/api/external/individualCalculations?nino=${nino}&token=${token}&taxYear=2024-25&calculationType=in-year`,
+      {
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+        },
+      }
+    );
+  };
   return (
     <div className="card-positioning-wrap">
       <Progress title="55% complete" width="55%" />
-      <div className="main-card-wrap" >
+      <div className="main-card-wrap">
         <div>
           <p className="jaldi text-[30px] leading-[50px] text-[#0030499C]">
-            For your <span className="text-[rgb(196, 196, 196)]">Delivery Driver</span> services, enter the income and expense
-            totals only for period: April 1, 2024 to June 30, 2024
+            For your{" "}
+            <span className="text-[rgb(196, 196, 196)]">Delivery Driver</span>{" "}
+            services, enter the income and expense totals only for period: April
+            1, 2024 to June 30, 2024
           </p>
         </div>
         <div>
           <div className="final-form-input-main-wrap">
-            <label className="archivo text-[24px] leading-[26px] text-[#06263E]">Total Income</label>
+            <label className="archivo text-[24px] leading-[26px] text-[#06263E]">
+              Total Income
+            </label>
             <div className="final-form-input-wrap">
               <input />
               <p className="medium">£</p>
             </div>
           </div>
-          <p className="archivo text-[24px] leading-[26px] text-[#06263E]">Expenses</p>
+          <p className="archivo text-[24px] leading-[26px] text-[#06263E]">
+            Expenses
+          </p>
           <div className="expense-input-wrap">
             <div className="expense-item">
               <label className="light-label">Directors salaries</label>
@@ -97,7 +118,7 @@ const Card = () => {
           </button>
           <button
             className="next-btn active-color form-next-button"
-            onClick={() => navigate("/review")}
+            onClick={handleNext}
           >
             <p>Next</p>
             <img src={buttonArrow} />

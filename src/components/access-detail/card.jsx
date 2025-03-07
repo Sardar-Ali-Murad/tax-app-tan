@@ -2,9 +2,19 @@ import React from "react";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import Progress from "../common/progress";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Card = () => {
+  const token = sessionStorage.getItem("code") || "";
   const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    window.open(
+      "https://test-api.service.hmrc.gov.uk/oauth/authorize?response_type=code&client_id=U9Qde8rNrra4kB5QuogGBsnyeuj1&scope=read:self-assessment&redirect_uri=http://localhost:5173",
+      "__blank"
+    );
+  };
+
   return (
     <div className="card-positioning-wrap">
       <Progress title="10% complete" width="10%" />
@@ -27,7 +37,7 @@ const Card = () => {
           </p>
         </div>
 
-        <div className="form-login-hmrc-btn">
+        <div className="form-login-hmrc-btn pointer" onClick={handleLogin}>
           <p>Login to HMRC Gateway</p>
         </div>
 
@@ -62,7 +72,13 @@ const Card = () => {
           </button>
           <button
             className="next-btn active-color form-next-button"
-            onClick={() => navigate("/confirm-detail")}
+            onClick={() => {
+              if (token) {
+                navigate("/confirm-detail");
+              } else {
+                toast.error("Please login to HMRC gateway");
+              }
+            }}
           >
             <p>Next</p>
             <img src={buttonArrow} />

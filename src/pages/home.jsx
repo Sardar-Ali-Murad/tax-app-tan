@@ -9,8 +9,10 @@ import ForgotPasswordDialog from "../components/register-account/forgot-password
 import PasswordResetDialog from "../components/register-account/password-reset-dialog";
 import NewPasswordDialog from "../components/register-account/new-password-dialog";
 import RegisterDialog from "../components/home/register-dialog";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  const location = useLocation();
   const [showLoginDialog, setShowLoginDialog] = React.useState(false);
   const [showMyProfileDialog, setShowMyProfileDialog] = React.useState(false);
   const [inCorrectLoginDialog, setInCorrectLoginDialog] = React.useState(false);
@@ -19,6 +21,12 @@ const Home = () => {
   const [passwordResetDialog, setPasswordResetDialog] = React.useState(false);
   const [newPasswordDialog, setNewPasswordDialog] = React.useState(false);
   const [registerDialog, setRegisterDialog] = React.useState(false);
+
+  React.useEffect(() => {
+    if (location?.search) {
+      sessionStorage.setItem("code", location?.search?.split("=")[1]);
+    }
+  }, [location]);
   return (
     <div>
       {showLoginDialog && (

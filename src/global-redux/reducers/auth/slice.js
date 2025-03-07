@@ -35,10 +35,11 @@ export const slice = createSlice({
       .addCase(setupLogin.pending, (state) => {
         state.loading = true;
       })
-      .addCase(setupLogin.fulfilled, (state) => {
+      .addCase(setupLogin.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.authAddSuccess = true;
         toast.success("Login Success");
+        sessionStorage.setItem("nino", payload?.user?.nino);
       })
       .addCase(setupLogin.rejected, (state) => {
         state.loading = false;
