@@ -10,6 +10,8 @@ import PasswordResetDialog from "../components/register-account/password-reset-d
 import NewPasswordDialog from "../components/register-account/new-password-dialog";
 import RegisterDialog from "../components/home/register-dialog";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../config/constants";
 
 const Home = () => {
   const location = useLocation();
@@ -25,6 +27,19 @@ const Home = () => {
   React.useEffect(() => {
     if (location?.search) {
       sessionStorage.setItem("code", location?.search?.split("=")[1]);
+      const getToken = async () => {
+        const response = await axios.get(
+          `${BASE_URL}/api/external/redirect?code=${
+            location?.search?.split("=")[1]
+          }`,
+          {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
+        );
+      };
+      getToken();
     }
   }, [location]);
   return (
