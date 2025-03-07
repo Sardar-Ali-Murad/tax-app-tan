@@ -11,16 +11,38 @@ const Card = () => {
 
   const token = sessionStorage.getItem("code") || "";
   const nino = sessionStorage.getItem("nino") || "";
+
   const handleNext = async () => {
-    await axios.get(
-      `${BASE_URL}/api/external/individualCalculationsGetId?nino=${nino}&token=${token}&taxYear=2024-25&calculationType=in-year`,
-      {
-        headers: {
-          "ngrok-skip-browser-warning": "true",
-        },
+
+    try {
+      const firstResponse = await axios.get(
+        `${BASE_URL}/api/external/individualCalculationsGetId?nino=${nino}&token=${token}&taxYear=2024-25&calculationType=in-year`,
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
+      );
+
+      if (firstResponse.status === 200) {
+        const secondResponse = await axios.get(
+          `${BASE_URL}/api/external/individualCalculations?nino=${nino}&token=${token}&taxYear=2024-25&calculationId=${firstResponse?.calculationId}`,
+          {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
+        );
+
+        if (secondResponse.status === 200) {
+          navigate("/review");
+        }
       }
-    );
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
+
   return (
     <div className="card-positioning-wrap">
       <Progress title="55% complete" width="55%" />
