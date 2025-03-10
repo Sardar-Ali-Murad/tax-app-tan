@@ -70,13 +70,7 @@ const Card = () => {
           </button>
           <button
             className="next-btn active-color form-next-button"
-            onClick={() => {
-              if (token) {
-                navigate("/confirm-detail");
-              } else {
-                toast.error("Please login to HMRC gateway");
-              }
-            }}
+            onClick={() => navigate("/confirm-detail")}
           >
             <p>Next</p>
             <img src={buttonArrow} />
