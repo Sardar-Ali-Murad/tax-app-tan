@@ -10,7 +10,7 @@ const Card = () => {
 
   const handleLogin = async () => {
     window.open(
-      "https://test-api.service.hmrc.gov.uk/oauth/authorize?response_type=code&client_id=U9Qde8rNrra4kB5QuogGBsnyeuj1&scope=read:self-assessment&redirect_uri=http://localhost:5173",
+      "https://test-api.service.hmrc.gov.uk/oauth/authorize?response_type=code&client_id=U9Qde8rNrra4kB5QuogGBsnyeuj1&scope=read:self-assessment write:self-assessment&redirect_uri=https://ae52-2a0a-a545-a6b3-0-b45b-95e6-ac3f-4456.ngrok-free.app/api/external/redirect",
       "__blank"
     );
   };
