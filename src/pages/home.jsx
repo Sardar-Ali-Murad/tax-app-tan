@@ -38,7 +38,7 @@ const Home = () => {
             },
           }
         );
-        console.log(response)
+        sessionStorage.setItem("token",response?.data)
       };
       getToken();
     }

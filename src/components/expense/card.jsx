@@ -9,11 +9,10 @@ import axios from "axios";
 const Card = () => {
   const navigate = useNavigate();
 
-  const token = sessionStorage.getItem("code") || "";
+  const token = sessionStorage.getItem("token") || "";
   const nino = sessionStorage.getItem("nino") || "";
 
   const handleNext = async () => {
-
     try {
       const firstResponse = await axios.get(
         `${BASE_URL}/api/external/individualCalculationsGetId?nino=${nino}&token=${token}&taxYear=2024-25&calculationType=in-year`,
@@ -24,7 +23,7 @@ const Card = () => {
         }
       );
 
-      if (firstResponse.status === 200) {
+      if (firstResponse.status === 200 || firstResponse.status === 201) {
         const secondResponse = await axios.get(
           `${BASE_URL}/api/external/individualCalculations?nino=${nino}&token=${token}&taxYear=2024-25&calculationId=${firstResponse?.calculationId}`,
           {
