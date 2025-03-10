@@ -5,11 +5,13 @@ import Card from "../components/access-detail/card";
 import axios from "axios";
 import { BASE_URL } from "../config/constants";
 import { useLocation } from "react-router-dom";
+import { handleSetToken } from "../global-redux/reducers/auth/slice";
+import { useDispatch } from "react-redux";
 import "./index.css";
 
 const AccessDetails = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
-
   React.useEffect(() => {
     if (location?.search) {
       sessionStorage.setItem("code", location?.search?.split("=")[1]);
@@ -24,6 +26,7 @@ const AccessDetails = () => {
             },
           }
         );
+        dispatch(handleSetToken(response?.data));
         sessionStorage.setItem("token", response?.data);
       };
       getToken();

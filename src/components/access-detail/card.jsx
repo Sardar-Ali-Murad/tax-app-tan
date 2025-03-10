@@ -2,11 +2,11 @@ import React from "react";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import Progress from "../common/progress";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { REDIRECT_URL } from "../../config/constants";
+import { useSelector } from "react-redux";
 
 const Card = () => {
-  const token = sessionStorage.getItem("code") || "";
+  const { token } = useSelector((state) => state?.auth);
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -34,10 +34,15 @@ const Card = () => {
             Click the button below to login to link to your HMRC account:
           </p>
         </div>
-
-        <div className="form-login-hmrc-btn pointer" onClick={handleLogin}>
-          <p>Login to HMRC Gateway</p>
-        </div>
+        {!token ? (
+          <div className="form-login-hmrc-btn pointer" onClick={handleLogin}>
+            <p>Login to HMRC Gateway</p>
+          </div>
+        ) : (
+          <h1 className="text-center font-[Jaldi]  text-[30px] font-normal leading-[50.7px] text-left text-[#0030499c] underline-offset-[from-font] decoration-skip-ink-none">
+            Logged In Successfully to HMRC
+          </h1>
+        )}
 
         <div>
           <p className="form-light-sub-title">
@@ -69,10 +74,18 @@ const Card = () => {
             Back
           </button>
           <button
-            className="next-btn active-color form-next-button"
-            onClick={() => navigate("/confirm-detail")}
+            className={`next-btn active-color form-next-button ${
+              !token && "opacity-[.5]"
+            } ${!token && "cursor-not-allowed"}`}
+            onClick={() => {
+              if (token) {
+                navigate("/confirm-detail");
+              }
+            }}
           >
-            <p>Next</p>
+            <p className={` ${!token ? "cursor-not-allowed" : "pointer"}`}>
+              Next
+            </p>
             <img src={buttonArrow} />
           </button>{" "}
         </div>

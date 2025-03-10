@@ -28,7 +28,11 @@ const Hero = () => {
             }
           }}
         >
-          <p className="pointer">Start for free</p>
+          <p
+            className={`${!user?.username ? "cursor-not-allowed" : "pointer"}`}
+          >
+            Start for free
+          </p>
           <div>
             <img src={arrow} />
           </div>
