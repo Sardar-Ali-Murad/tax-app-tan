@@ -22,10 +22,11 @@ const Card = () => {
           },
         }
       );
+      console.log(firstResponse);
 
       if (firstResponse.status === 200 || firstResponse.status === 201) {
         const secondResponse = await axios.get(
-          `${BASE_URL}/api/external/individualCalculations?nino=${nino}&token=${token}&taxYear=2024-25&calculationId=${firstResponse?.calculationId}`,
+          `${BASE_URL}/api/external/individualCalculations?nino=${nino}&token=${token}&taxYear=2024-25&calculationId=${firstResponse?.data?.calculationId}`,
           {
             headers: {
               "ngrok-skip-browser-warning": "true",
