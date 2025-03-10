@@ -3,16 +3,14 @@ import buttonArrow from "../../assets/user-info/button-arrow.png";
 import Progress from "../common/progress";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { REDIRECT_URL } from "../../config/constants";
 
 const Card = () => {
   const token = sessionStorage.getItem("code") || "";
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    window.open(
-      "https://test-api.service.hmrc.gov.uk/oauth/authorize?response_type=code&client_id=U9Qde8rNrra4kB5QuogGBsnyeuj1&scope=read:self-assessment write:self-assessment&redirect_uri=https://tax-app-tan.vercel.app",
-      "__blank"
-    );
+    window.open(REDIRECT_URL, "__blank");
   };
 
   return (
