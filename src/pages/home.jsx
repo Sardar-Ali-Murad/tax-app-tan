@@ -9,12 +9,8 @@ import ForgotPasswordDialog from "../components/register-account/forgot-password
 import PasswordResetDialog from "../components/register-account/password-reset-dialog";
 import NewPasswordDialog from "../components/register-account/new-password-dialog";
 import RegisterDialog from "../components/home/register-dialog";
-import { useLocation } from "react-router-dom";
-import axios from "axios";
-import { BASE_URL } from "../config/constants";
 
 const Home = () => {
-  const location = useLocation();
   const [showLoginDialog, setShowLoginDialog] = React.useState(false);
   const [showMyProfileDialog, setShowMyProfileDialog] = React.useState(false);
   const [inCorrectLoginDialog, setInCorrectLoginDialog] = React.useState(false);
@@ -24,25 +20,6 @@ const Home = () => {
   const [newPasswordDialog, setNewPasswordDialog] = React.useState(false);
   const [registerDialog, setRegisterDialog] = React.useState(false);
 
-  React.useEffect(() => {
-    if (location?.search) {
-      sessionStorage.setItem("code", location?.search?.split("=")[1]);
-      const getToken = async () => {
-        const response = await axios.get(
-          `${BASE_URL}/api/external/redirect?code=${
-            location?.search?.split("=")[1]
-          }`,
-          {
-            headers: {
-              "ngrok-skip-browser-warning": "true",
-            },
-          }
-        );
-        sessionStorage.setItem("token",response?.data)
-      };
-      getToken();
-    }
-  }, [location]);
   return (
     <div>
       {showLoginDialog && (
