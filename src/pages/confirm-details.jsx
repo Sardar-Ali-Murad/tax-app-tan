@@ -7,14 +7,13 @@ import "./index.css";
 
 const ConfirmDetails = () => {
   const { hmrc } = useSelector((state) => state?.auth);
-  console.log(hmrc);
   return (
     <div>
       <Header />
       <div className="user-info-body-wrap">
         <img src={bars} />
       </div>
-      <Card />
+      <Card hmrc={hmrc} />
     </div>
   );
 };

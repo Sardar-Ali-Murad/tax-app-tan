@@ -17,6 +17,7 @@ const MyProfileDialog = ({ setShowMyProfileDialog }) => {
     sessionStorage.removeItem("nino");
     sessionStorage.removeItem("code");
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("hmrc");
     setShowMyProfileDialog(false);
   }
   return (

@@ -2,9 +2,11 @@ import React from "react";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import Progress from "../common/progress";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Card = () => {
   const navigate = useNavigate();
+  const { hmrc } = useSelector((state) => state?.auth);
   return (
     <div className="card-positioning-wrap">
       <Progress title="27% complete" width="27%" />
@@ -19,15 +21,18 @@ const Card = () => {
         <div className="form-collected-data">
           <div className="single-collected-data">
             <h1>Type of obligation</h1>
-            <p>Income Tax</p>
+            <p>{hmrc?.metadata?.calculationType}</p>
           </div>
           <div className="single-collected-data">
             <h1>Period start and end dates</h1>
-            <p>April 1, 2024 - June 30, 2024</p>
+            <p>
+              <p>{hmrc?.metadata?.periodFrom}</p>-{" "}
+              <p>{hmrc?.metadata?.periodTo}</p>
+            </p>
           </div>
           <div className="single-collected-data">
-            <h1>Due date</h1>
-            <p>2024</p>
+            <h1>Tax Year</h1>
+            <p>{hmrc?.metadata?.taxYear}</p>
           </div>
         </div>
         <p className="reporting-period-sub-text">
