@@ -53,10 +53,8 @@ const CheckoutForm = () => {
     });
 
     if (result.error) {
-      toast.error(result.error.message);
       navigate("/failure");
     } else if (result.paymentIntent.status === "succeeded") {
-      toast.success("Payment Successful!");
       navigate("/success");
     }
     setLoading(false);

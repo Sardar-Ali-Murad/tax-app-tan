@@ -84,12 +84,12 @@ const RegisterDialog = ({ setShowLoginDialog, setRegisterDialog }) => {
         <div className="register-single-text-field">
           <div className="register-first-label">
             <label>Full name</label>
-            <div className="login-options-wrap">
+            {/* <div className="login-options-wrap">
               <p>or register with</p>
               <img src={google} />
               <img src={apple} />
               <img src={facebook} />
-            </div>
+            </div> */}
           </div>
           <input name="fullName" {...formik.getFieldProps("fullName")} />
           {formik.touched.fullName && formik.errors.fullName && (

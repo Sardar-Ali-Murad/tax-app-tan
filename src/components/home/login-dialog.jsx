@@ -32,7 +32,6 @@ const LoginDialog = ({
       email: Yup.string()
         .email("Invalid email format")
         .required("Email is required"),
-      nino: Yup.string().required("Nino is required"),
       password: Yup.string()
         .min(6, "Minimum 6 characters")
         .required("Password is required"),
@@ -81,7 +80,7 @@ const LoginDialog = ({
             <p className="error">{formik.errors.email}</p>
           )}
         </div>
-        <div className="login-single-text-field-wrap">
+        {/* <div className="login-single-text-field-wrap">
           <label>Nino</label>
           <input
             type="nino"
@@ -93,7 +92,7 @@ const LoginDialog = ({
           {formik.touched.nino && formik.errors.nino && (
             <p className="error">{formik.errors.nino}</p>
           )}
-        </div>
+        </div> */}
         <div className="login-single-text-field-wrap">
           <label>Password</label>
           <input
@@ -125,12 +124,12 @@ const LoginDialog = ({
         </div>
       </form>
       <div className="flex flex-col gap-[30px] mt-[30px]">
-        <div className="login-options-wrap">
+        {/* <div className="login-options-wrap">
           <p>or login with</p>
           <img src={google} />
           <img src={apple} />
           <img src={facebook} />
-        </div>
+        </div> */}
         <div className="logn-register-option">
           <p>Don’t have an account? </p>
           <span

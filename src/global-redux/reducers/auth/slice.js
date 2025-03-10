@@ -38,7 +38,6 @@ export const slice = createSlice({
       .addCase(setupLogin.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.authAddSuccess = true;
-        toast.success("Login Success");
         sessionStorage.setItem("nino", payload?.user?.nino);
       })
       .addCase(setupLogin.rejected, (state) => {
@@ -53,7 +52,6 @@ export const slice = createSlice({
       .addCase(setupRegister.fulfilled, (state) => {
         state.loading = false;
         state.authAddSuccess = true;
-        toast.success("User Added Successfully");
       })
       .addCase(setupRegister.rejected, (state) => {
         state.loading = false;
