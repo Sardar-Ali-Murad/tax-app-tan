@@ -39,7 +39,9 @@ const Card = ({ setShowLoginDialog }) => {
     validationSchema,
     onSubmit: (values) => {
       if (!loading) {
-        dispatch(setupRegister(values));
+        if (values?.terms) {
+          dispatch(setupRegister(values));
+        }
       }
     },
   });
@@ -132,7 +134,7 @@ const Card = ({ setShowLoginDialog }) => {
               </p>
             </div>
             <button
-            type="submit"
+              type="submit"
               className="next-btn active-color form-next-button text-[#FFFF] h-[60px]"
             >
               <p>Register</p>

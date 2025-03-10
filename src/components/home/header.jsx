@@ -14,15 +14,15 @@ const Header = ({ setShowLoginDialog, setShowMyProfileDialog }) => {
         </div>
       </div>
       <div className="home-links">
-        <p onClick={() => navigate("/start")}>About</p>
+        <p>About</p>
         <div className="line"></div>
-        <p onClick={() => navigate("/start")}>Pricing</p>
-        <div className="line"></div>
-
-        <p onClick={() => navigate("/start")}>Contact</p>
+        <p>Pricing</p>
         <div className="line"></div>
 
-        <p onClick={() => navigate("/start")}>FAQ</p>
+        <p>Contact</p>
+        <div className="line"></div>
+
+        <p>FAQ</p>
         <div className="line"></div>
       </div>
       <div className="home-login-btn-wrap">

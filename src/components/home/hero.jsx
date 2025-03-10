@@ -16,7 +16,6 @@ const Hero = ({ setShowLoginDialog }) => {
       <div className="home-hero-btn-wrap">
         <div
           className="learn-more-btn"
-          onClick={() => setShowLoginDialog(true)}
         >
           <p className="pointer">Learn more</p>
         </div>

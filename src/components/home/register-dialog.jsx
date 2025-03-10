@@ -41,7 +41,9 @@ const RegisterDialog = ({ setShowLoginDialog, setRegisterDialog }) => {
     }),
     onSubmit: (values) => {
       if (!loading) {
-        dispatch(setupRegister(values));
+        if (values?.termsAccepted) {
+          dispatch(setupRegister(values));
+        }
       }
     },
   });
