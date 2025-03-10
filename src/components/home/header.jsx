@@ -27,11 +27,17 @@ const Header = ({ setShowLoginDialog, setShowMyProfileDialog }) => {
       </div>
       <div className="home-login-btn-wrap">
         {user?.username || Object.keys(user)?.length ? (
-          <img
-            src={flag}
-            className="pointer"
+          // '<img
+          //   src={flag}
+          //   className="pointer"
+          //   onClick={() => setShowMyProfileDialog(true)}
+          // />'
+          <div
+            className="home-header-button pointer"
             onClick={() => setShowMyProfileDialog(true)}
-          />
+          >
+            <p className="pointer">User Info</p>
+          </div>
         ) : (
           <div
             className="home-header-button pointer"

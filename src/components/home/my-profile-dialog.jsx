@@ -32,7 +32,7 @@ const MyProfileDialog = ({ setShowMyProfileDialog }) => {
         </div>
       )}
       <div className="flex items-center gap-[10px] justify-end">
-        <img src={flag} />
+        {/* <img src={flag} /> */}
         <img
           src={close}
           className="cursor-pointer"

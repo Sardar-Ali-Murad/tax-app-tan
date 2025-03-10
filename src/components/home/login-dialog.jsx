@@ -52,7 +52,7 @@ const LoginDialog = ({
   return (
     <div className="login-dialog-wrap">
       <div className="flex items-center gap-[10px] justify-end">
-        <img src={flag} />
+        {/* <img src={flag} /> */}
         <img
           src={close}
           className="cursor-pointer"
