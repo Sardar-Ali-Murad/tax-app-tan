@@ -2,44 +2,12 @@ import React from "react";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import Progress from "../common/progress";
 import add from "../../assets/user-info/add.png";
-import { BASE_URL } from "../../config/constants";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const Card = () => {
   const navigate = useNavigate();
-
-  const token = sessionStorage.getItem("token") || "";
-  const nino = sessionStorage.getItem("nino") || "";
-
   const handleNext = async () => {
-    try {
-      const firstResponse = await axios.get(
-        `${BASE_URL}/api/external/individualCalculationsGetId?nino=${nino}&token=${token}&taxYear=2024-25&calculationType=in-year`,
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        }
-      );
-
-      if (firstResponse.status === 200 || firstResponse.status === 201) {
-        const secondResponse = await axios.get(
-          `${BASE_URL}/api/external/individualCalculations?nino=${nino}&token=${token}&taxYear=2024-25&calculationId=${firstResponse?.data?.calculationId}`,
-          {
-            headers: {
-              "ngrok-skip-browser-warning": "true",
-            },
-          }
-        );
-
-        if (secondResponse.status === 200) {
-          navigate("/review");
-        }
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+    navigate("/review");
   };
 
   return (

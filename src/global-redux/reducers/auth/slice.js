@@ -7,6 +7,7 @@ const initialState = {
   authAddSuccess: false,
   user: JSON.parse(sessionStorage.getItem("user")) || {},
   token: sessionStorage.getItem("token") || "",
+  hmrc: JSON.parse(sessionStorage.getItem("hmrc")) || {},
 };
 
 export const setupLogin = createAsyncThunk(
@@ -35,6 +36,9 @@ export const slice = createSlice({
     },
     handleSetToken: (state, action) => {
       state.token = action.payload;
+    },
+    handleSetHMRC: (state, action) => {
+      state.hmrc = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -70,6 +74,11 @@ export const slice = createSlice({
   },
 });
 
-export const { resetAuthAddSuccess, handleResetUser,handleSetToken } = slice.actions;
+export const {
+  resetAuthAddSuccess,
+  handleResetUser,
+  handleSetToken,
+  handleSetHMRC,
+} = slice.actions;
 
 export default slice.reducer;

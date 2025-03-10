@@ -5,7 +5,10 @@ import Card from "../components/access-detail/card";
 import axios from "axios";
 import { BASE_URL } from "../config/constants";
 import { useLocation } from "react-router-dom";
-import { handleSetToken } from "../global-redux/reducers/auth/slice";
+import {
+  handleSetToken,
+  handleSetHMRC,
+} from "../global-redux/reducers/auth/slice";
 import { useDispatch, useSelector } from "react-redux";
 import "./index.css";
 
@@ -34,6 +37,11 @@ const AccessDetails = () => {
         );
 
         const token = response?.data;
+        if (
+          token === "Failed to get token Token request failed: invalid_request"
+        ) {
+          return;
+        }
         dispatch(handleSetToken(token));
         sessionStorage.setItem("token", token);
 
@@ -62,7 +70,8 @@ const AccessDetails = () => {
               },
             }
           );
-          console.log("Second API response:", secondResponse?.data);
+          dispatch(handleSetHMRC(secondResponse?.data));
+          sessionStorage.setItem("hmrc", JSON.stringify(secondResponse?.data));
         }
       } catch (error) {
         console.error("Error fetching token or calculation data:", error);

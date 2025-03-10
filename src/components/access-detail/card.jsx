@@ -6,7 +6,7 @@ import { REDIRECT_URL } from "../../config/constants";
 import { useSelector } from "react-redux";
 
 const Card = () => {
-  const { token } = useSelector((state) => state?.auth);
+  const { token, hmrc } = useSelector((state) => state?.auth);
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -75,15 +75,23 @@ const Card = () => {
           </button>
           <button
             className={`next-btn active-color form-next-button ${
-              !token && "opacity-[.5]"
-            } ${!token && "cursor-not-allowed"}`}
+              (!token || !Object.keys(hmrc)?.length) && "opacity-[.5]"
+            } ${
+              (!token || !Object.keys(hmrc)?.length) && "cursor-not-allowed"
+            }`}
             onClick={() => {
-              if (token) {
+              if (token && Object.keys(hmrc)?.length) {
                 navigate("/confirm-detail");
               }
             }}
           >
-            <p className={` ${!token ? "cursor-not-allowed" : "pointer"}`}>
+            <p
+              className={` ${
+                !token || !Object.keys(hmrc)?.length
+                  ? "cursor-not-allowed"
+                  : "pointer"
+              }`}
+            >
               Next
             </p>
             <img src={buttonArrow} />
