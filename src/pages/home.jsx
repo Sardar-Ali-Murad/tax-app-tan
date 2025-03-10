@@ -98,7 +98,7 @@ const Home = () => {
         setShowLoginDialog={setShowLoginDialog}
         setShowMyProfileDialog={setShowMyProfileDialog}
       />
-      <Hero setShowLoginDialog={setShowLoginDialog} />
+      <Hero />
       <Body />
     </div>
   );

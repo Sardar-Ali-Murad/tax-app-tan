@@ -1,11 +1,11 @@
 import React from "react";
 import logo from "../../assets/home/home-logo.svg";
 import flag from "../../assets/common/flag.svg";
-import { useNavigate } from "react-router-dom";
 import "./index.css";
+import { useSelector } from "react-redux";
 
 const Header = ({ setShowLoginDialog, setShowMyProfileDialog }) => {
-  const navigate = useNavigate();
+  const { user } = useSelector((state) => state?.auth);
   return (
     <div className="home-header-wrap">
       <div className="home-logo-text-wrap">
@@ -26,17 +26,20 @@ const Header = ({ setShowLoginDialog, setShowMyProfileDialog }) => {
         <div className="line"></div>
       </div>
       <div className="home-login-btn-wrap">
-        <img
-          src={flag}
-          className="pointer"
-          onClick={() => setShowMyProfileDialog(true)}
-        />
-        <div
-          className="home-header-button pointer"
-          onClick={() => setShowLoginDialog(true)}
-        >
-          <p className="pointer">Login</p>
-        </div>
+        {user?.username || Object.keys(user)?.length ? (
+          <img
+            src={flag}
+            className="pointer"
+            onClick={() => setShowMyProfileDialog(true)}
+          />
+        ) : (
+          <div
+            className="home-header-button pointer"
+            onClick={() => setShowLoginDialog(true)}
+          >
+            <p className="pointer">Login</p>
+          </div>
+        )}
       </div>
     </div>
   );

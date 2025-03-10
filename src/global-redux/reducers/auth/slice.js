@@ -5,6 +5,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const initialState = {
   loading: false,
   authAddSuccess: false,
+  user: JSON.parse(sessionStorage.getItem("user")) || {},
 };
 
 export const setupLogin = createAsyncThunk(
@@ -28,6 +29,9 @@ export const slice = createSlice({
     resetAuthAddSuccess: (state) => {
       state.authAddSuccess = false;
     },
+    handleResetUser: (state) => {
+      state.user = {};
+    },
   },
   extraReducers: (builder) => {
     // Handle Login
@@ -39,6 +43,8 @@ export const slice = createSlice({
         state.loading = false;
         state.authAddSuccess = true;
         sessionStorage.setItem("nino", payload?.user?.nino);
+        sessionStorage.setItem("user", JSON.stringify(payload?.user));
+        state.user = payload?.user;
       })
       .addCase(setupLogin.rejected, (state) => {
         state.loading = false;
@@ -60,6 +66,6 @@ export const slice = createSlice({
   },
 });
 
-export const { resetAuthAddSuccess } = slice.actions;
+export const { resetAuthAddSuccess ,handleResetUser} = slice.actions;
 
 export default slice.reducer;

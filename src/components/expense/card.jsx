@@ -22,7 +22,6 @@ const Card = () => {
           },
         }
       );
-      console.log(firstResponse);
 
       if (firstResponse.status === 200 || firstResponse.status === 201) {
         const secondResponse = await axios.get(

@@ -1,11 +1,12 @@
 import React from "react";
 import arrow from "../../assets/home/arrow.svg";
-import "./index.css";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import "./index.css";
 
-const Hero = ({ setShowLoginDialog }) => {
+const Hero = () => {
   const navigate = useNavigate();
+  const { user } = useSelector((state) => state?.auth);
   const nino = sessionStorage.getItem("nino") || "";
 
   return (
@@ -14,18 +15,16 @@ const Hero = ({ setShowLoginDialog }) => {
         <h1>Tax Made Simple.</h1>
       </div>
       <div className="home-hero-btn-wrap">
-        <div
-          className="learn-more-btn"
-        >
+        <div className="learn-more-btn">
           <p className="pointer">Learn more</p>
         </div>
         <div
-          className="free-btn"
+          className={`free-btn ${!user?.username && "opacity-[.5]"} ${
+            !user?.username && "cursor-not-allowed"
+          }`}
           onClick={() => {
             if (nino) {
               navigate("/start");
-            } else {
-              toast.error("Please Login to proceed further");
             }
           }}
         >
