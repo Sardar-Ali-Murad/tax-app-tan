@@ -1,7 +1,7 @@
 import React from "react";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import Progress from "../common/progress";
-import add from "../../assets/user-info/add.png";
+import cross from "../../assets/cross.svg";
 import ExpenseDialog from "./expense-dialog";
 import { useNavigate } from "react-router-dom";
 
@@ -179,7 +179,7 @@ const Card = () => {
               Total Income
             </label>
             <div className="final-form-input-wrap">
-              <input />
+              <input className="px-[20px]" type="number" />
               <p className="medium">£</p>
             </div>
           </div>
@@ -192,9 +192,11 @@ const Card = () => {
               ?.map((expense, ind) => {
                 return (
                   <div className="expense-item" key={ind}>
-                    <label className="light-label archivo">{expense?.name}</label>
+                    <label className="light-label archivo">
+                      {expense?.name}
+                    </label>
                     <div className="final-form-input-wrap">
-                      <input />
+                      <input className="px-[20px]" type="number" />
                       <p className="medium">£</p>
                     </div>
                   </div>
@@ -204,7 +206,9 @@ const Card = () => {
               className="add-expense-wrap pointer"
               onClick={() => setShowExpenseDialog(true)}
             >
-              <img src={add} />
+              <div className="h-[18px] w-[18px] bg-[#003049] flex justify-center items-center" style={{borderRadius:"50%"}}>
+                <img src={cross} />
+              </div>
               <p>add/ remove expense category</p>
             </div>
           </div>
