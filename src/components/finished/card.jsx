@@ -82,7 +82,7 @@ const Card = () => {
         <div className="flex justify-end mt-40">
           <button
             onClick={() => navigate("/")}
-            className="bg-[#B7C0C5] h-[58px] rounded-[4px] w-[200px] archivo font-bold text-[16px] text-[#FFFFFF]"
+            className="bg-[#003049] h-[58px] rounded-[4px] w-[200px] archivo font-bold text-[16px] text-[#FFFFFF]"
           >
             <p>Return to home page</p>
           </button>{" "}

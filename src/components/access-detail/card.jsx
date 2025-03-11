@@ -4,6 +4,7 @@ import Progress from "../common/progress";
 import { useNavigate } from "react-router-dom";
 import { REDIRECT_URL } from "../../config/constants";
 import { useSelector } from "react-redux";
+import tick from "../../assets/tick.svg";
 
 const Card = ({ loading }) => {
   const { token, hmrc } = useSelector((state) => state?.auth);
@@ -39,9 +40,12 @@ const Card = ({ loading }) => {
             <p>Login to HMRC Gateway</p>
           </div>
         ) : (
-          <h1 className="text-center font-[Jaldi]  text-[30px] font-normal leading-[50.7px] text-left text-[#0030499c] underline-offset-[from-font] decoration-skip-ink-none">
-            Logged In Successfully to HMRC
-          </h1>
+          <div className="flex items-center gap-[4px] justify-center">
+            <img src={tick} />
+            <h1 className="text-[24px] archivo font-bold text-[#40B7B0]">
+              Logged In Successfully to HMRC
+            </h1>
+          </div>
         )}
 
         <div>
