@@ -94,3 +94,14 @@ video {
   color: #d3984e;
   font-family: "Jaldi", serif;
 }
+
+.model-wrap-expense {
+  width: 62%;
+  background-color: white;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  top: 49px;
+  right: -167px;
+  overflow-y: auto;
+}

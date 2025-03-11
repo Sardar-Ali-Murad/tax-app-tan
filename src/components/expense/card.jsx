@@ -2,10 +2,146 @@ import React from "react";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import Progress from "../common/progress";
 import add from "../../assets/user-info/add.png";
+import ExpenseDialog from "./expense-dialog";
 import { useNavigate } from "react-router-dom";
 
 const Card = () => {
   const navigate = useNavigate();
+  const [showExpenseDialog, setShowExpenseDialog] = React.useState(false);
+  const [items, setItems] = React.useState([
+    {
+      id: 1,
+      name: "Bank fees",
+      selected: true,
+      locked: false,
+    },
+    {
+      id: 2,
+      name: "Directors salaries",
+      selected: true,
+      locked: false,
+    },
+    {
+      id: 3,
+      name: "Directors trivial benefit",
+      selected: true,
+      locked: false,
+    },
+    {
+      id: 4,
+      name: "Dividends",
+      selected: true,
+      locked: false,
+    },
+    {
+      id: 5,
+      name: "Employee wages & salaries",
+      selected: true,
+      locked: false,
+    },
+    {
+      id: 6,
+      name: "Employers NI",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 7,
+      name: "Entertaining",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 8,
+      name: "Equipment expensed (phone, computer, etc.)",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 9,
+      name: "Insurance",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 10,
+      name: "Interest - bank (overdraft fees)",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 11,
+      name: "Management fees",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 12,
+      name: "Other legal & professional fees",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 13,
+      name: "Pension contributions",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 14,
+      name: "Postage",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 15,
+      name: "Rates (Property tax from rented space)",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 16,
+      name: "Rent",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 17,
+      name: "Repairs and maintenance",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 18,
+      name: "Software",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 19,
+      name: "Telephone/ Internet",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 20,
+      name: "Travel and subsistence",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 21,
+      name: "Use of home",
+      selected: false,
+      locked: false,
+    },
+    {
+      id: 22,
+      name: "Water",
+      selected: false,
+      locked: false,
+    },
+  ]);
   const handleNext = async () => {
     navigate("/review");
   };
@@ -14,6 +150,21 @@ const Card = () => {
     <div className="card-positioning-wrap">
       <Progress title="55% complete" width="55%" />
       <div className="main-card-wrap">
+        {showExpenseDialog && (
+          <div className="model-parent">
+            <div
+              className="absolute top-[0px] left-[0px] botton-[0px] right-[0px] bg-[#40B7B0] min-h-[100vh] w-[100%] opacity-[0.14]"
+              onClick={() => setShowExpenseDialog(false)}
+            ></div>
+            <div className="model-wrap-expense">
+              <ExpenseDialog
+                setShowExpenseDialog={setShowExpenseDialog}
+                items={items}
+                setItems={setItems}
+              />
+            </div>
+          </div>
+        )}
         <div>
           <p className="jaldi text-[30px] leading-[50px] text-[#0030499C]">
             For your{" "}
@@ -36,63 +187,23 @@ const Card = () => {
             Expenses
           </p>
           <div className="expense-input-wrap">
-            <div className="expense-item">
-              <label className="light-label">Directors salaries</label>
-              <div className="final-form-input-wrap">
-                <input />
-                <p className="medium">£</p>
-              </div>
-            </div>
-            <div className="expense-item">
-              <label className="light-label">Dividends</label>
-              <div className="final-form-input-wrap">
-                <input />
-                <p className="medium">£</p>
-              </div>
-            </div>
-            <div className="expense-item">
-              <label className="light-label">Employers NI</label>
-              <div className="final-form-input-wrap">
-                <input />
-                <p className="medium">£</p>
-              </div>
-            </div>
-            <div className="expense-item">
-              <label className="light-label">Employee’s NI</label>
-              <div className="final-form-input-wrap">
-                <input />
-                <p className="medium">£</p>
-              </div>
-            </div>
-            <div className="expense-item">
-              <label className="light-label">Software</label>
-              <div className="final-form-input-wrap">
-                <input />
-                <p className="medium">£</p>
-              </div>
-            </div>
-            <div className="expense-item">
-              <label className="light-label">Stationary and printing</label>
-              <div className="final-form-input-wrap">
-                <input />
-                <p className="medium">£</p>
-              </div>
-            </div>
-            <div className="expense-item">
-              <label className="light-label">Equipment expensed </label>
-              <div className="final-form-input-wrap">
-                <input />
-                <p className="medium">£</p>
-              </div>
-            </div>
-            <div className="expense-item">
-              <label className="light-label">Telephone/ Internet bills </label>
-              <div className="final-form-input-wrap">
-                <input />
-                <p className="medium">£</p>
-              </div>
-            </div>
-            <div className="add-expense-wrap">
+            {items
+              ?.filter((item) => item?.selected)
+              ?.map((expense, ind) => {
+                return (
+                  <div className="expense-item" key={ind}>
+                    <label className="light-label archivo">{expense?.name}</label>
+                    <div className="final-form-input-wrap">
+                      <input />
+                      <p className="medium">£</p>
+                    </div>
+                  </div>
+                );
+              })}
+            <div
+              className="add-expense-wrap pointer"
+              onClick={() => setShowExpenseDialog(true)}
+            >
               <img src={add} />
               <p>add/ remove expense category</p>
             </div>
