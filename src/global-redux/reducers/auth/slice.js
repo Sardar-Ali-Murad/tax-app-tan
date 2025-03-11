@@ -33,6 +33,7 @@ export const slice = createSlice({
     },
     handleResetUser: (state) => {
       state.user = {};
+      state.hmrc = {};
     },
     handleSetToken: (state, action) => {
       state.token = action.payload;

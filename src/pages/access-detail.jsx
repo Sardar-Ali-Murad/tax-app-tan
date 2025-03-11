@@ -16,7 +16,7 @@ const AccessDetails = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const { user } = useSelector((state) => state?.auth);
-  const { loading, setLoading } = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     if (!location?.search) return;
@@ -42,6 +42,7 @@ const AccessDetails = () => {
         if (
           token === "Failed to get token Token request failed: invalid_request"
         ) {
+          setLoading(false);
           return;
         }
         dispatch(handleSetToken(token));

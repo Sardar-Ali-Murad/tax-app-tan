@@ -74,7 +74,7 @@ const Card = ({ loading }) => {
             Back
           </button>
           <button
-            className={`next-btn active-color form-next-button ${
+            className={`next-btn-hmrc active-color form-next-button ${
               (!token || !Object.keys(hmrc)?.length) && "opacity-[.5]"
             } ${
               !token || !Object.keys(hmrc)?.length
