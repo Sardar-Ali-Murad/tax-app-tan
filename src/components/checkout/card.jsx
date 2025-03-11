@@ -176,7 +176,7 @@ const SubmitCard = () => {
           </button>
           <button
             className="next-btn active-color form-next-button"
-            onClick={() => navigate("/register-account")}
+            onClick={() => navigate("/submit")}
           >
             <p>Next</p>
             <img src={buttonArrow} />
