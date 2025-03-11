@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { REDIRECT_URL } from "../../config/constants";
 import { useSelector } from "react-redux";
 
-const Card = () => {
+const Card = ({ loading }) => {
   const { token, hmrc } = useSelector((state) => state?.auth);
   const navigate = useNavigate();
 
@@ -77,7 +77,9 @@ const Card = () => {
             className={`next-btn active-color form-next-button ${
               (!token || !Object.keys(hmrc)?.length) && "opacity-[.5]"
             } ${
-              (!token || !Object.keys(hmrc)?.length) && "cursor-not-allowed"
+              !token || !Object.keys(hmrc)?.length
+                ? "cursor-not-allowed"
+                : "pointer"
             }`}
             onClick={() => {
               if (token && Object.keys(hmrc)?.length) {
@@ -85,16 +87,22 @@ const Card = () => {
               }
             }}
           >
-            <p
-              className={` ${
-                !token || !Object.keys(hmrc)?.length
-                  ? "cursor-not-allowed"
-                  : "pointer"
-              }`}
-            >
-              Next
-            </p>
-            <img src={buttonArrow} />
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              <>
+                <p
+                  className={` ${
+                    !token || !Object.keys(hmrc)?.length
+                      ? "cursor-not-allowed"
+                      : "pointer"
+                  }`}
+                >
+                  Next
+                </p>
+                <img src={buttonArrow} />
+              </>
+            )}
           </button>{" "}
         </div>
       </div>

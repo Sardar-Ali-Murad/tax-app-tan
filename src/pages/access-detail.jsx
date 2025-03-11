@@ -16,12 +16,14 @@ const AccessDetails = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const { user } = useSelector((state) => state?.auth);
+  const { loading, setLoading } = React.useState(false);
 
   React.useEffect(() => {
     if (!location?.search) return;
 
     const code = location.search.split("=")[1];
     if (!code) return;
+    setLoading(true);
 
     sessionStorage.setItem("code", code);
 
@@ -72,6 +74,7 @@ const AccessDetails = () => {
           );
           dispatch(handleSetHMRC(secondResponse?.data));
           sessionStorage.setItem("hmrc", JSON.stringify(secondResponse?.data));
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching token or calculation data:", error);
@@ -87,7 +90,7 @@ const AccessDetails = () => {
       <div className="user-info-body-wrap">
         <img src={bars} />
       </div>
-      <Card />
+      <Card loading={loading} />
     </div>
   );
 };

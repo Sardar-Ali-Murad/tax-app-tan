@@ -25,10 +25,11 @@ const Card = () => {
           </div>
           <div className="single-collected-data">
             <h1>Period start and end dates</h1>
-            <p>
-              <p>{hmrc?.metadata?.periodFrom}</p>-{" "}
+            <div className="flex">
+              <p>{hmrc?.metadata?.periodFrom}</p>
+              <p>-</p>
               <p>{hmrc?.metadata?.periodTo}</p>
-            </p>
+            </div>
           </div>
           <div className="single-collected-data">
             <h1>Tax Year</h1>
