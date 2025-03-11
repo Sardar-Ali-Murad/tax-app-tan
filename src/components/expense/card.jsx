@@ -192,7 +192,7 @@ const Card = () => {
               ?.map((expense, ind) => {
                 return (
                   <div className="expense-item" key={ind}>
-                    <label className="light-label archivo">
+                    <label className="light-label archivo" style={{color:"#06263E"}}>
                       {expense?.name}
                     </label>
                     <div className="final-form-input-wrap">
@@ -209,7 +209,7 @@ const Card = () => {
               <div className="h-[18px] w-[18px] bg-[#003049] flex justify-center items-center" style={{borderRadius:"50%"}}>
                 <img src={cross} />
               </div>
-              <p>add/ remove expense category</p>
+              <p style={{color:"#06263E"}}>add/ remove expense category</p>
             </div>
           </div>
         </div>
