@@ -32,12 +32,10 @@ const Header = ({ setShowLoginDialog, setShowMyProfileDialog }) => {
           //   className="pointer"
           //   onClick={() => setShowMyProfileDialog(true)}
           // />'
-          <div
-            className="home-header-button pointer"
-            onClick={() => setShowMyProfileDialog(true)}
-          >
-            <p className="pointer">User Info</p>
-          </div>
+
+          <p className="pointer" onClick={() => setShowMyProfileDialog(true)}>
+            {user?.username}
+          </p>
         ) : (
           <div
             className="home-header-button pointer"

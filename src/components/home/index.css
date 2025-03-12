@@ -68,13 +68,12 @@
 .home-login-btn-wrap p {
   font-family: "Archivo", serif;
   font-size: 20px;
-  font-weight: 600;
   line-height: 21.76px;
   letter-spacing: 0.01em;
   text-align: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  color: #ffffff;
+  color: grey;
 }
 
 .home-hero-wrap {

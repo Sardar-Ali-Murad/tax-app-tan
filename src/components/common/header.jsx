@@ -11,10 +11,10 @@ const header = () => {
       <div className="logo-wrapper">
         <img src={logo} onClick={() => navigate("/")} className="pointer" />
       </div>
-      <div className="common-header-right-wrap">
+      {/* <div className="common-header-right-wrap">
         <p>Login</p>
         <img src={flag} />
-      </div>
+      </div> */}
     </div>
   );
 };
