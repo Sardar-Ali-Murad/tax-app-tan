@@ -56,7 +56,7 @@ export const slice = createSlice({
         state.loading = false;
         state.authAddSuccess = true;
         sessionStorage.setItem("nino", payload?.user?.nino);
-        sessionStorage.setItem("user", JSON.stringify(payload?.user));
+        localStorage.setItem("user", JSON.stringify(payload?.user));
         state.user = payload?.user;
         state.inCorrectCredentials = false;
       })
