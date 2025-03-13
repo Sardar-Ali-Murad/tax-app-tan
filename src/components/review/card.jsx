@@ -6,7 +6,7 @@ import Progress from "../common/progress";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Card = () => {
+const Card = ({setOpen}) => {
   const navigate = useNavigate();
   const { hmrc } = useSelector((state) => state?.auth);
   return (
@@ -14,7 +14,17 @@ const Card = () => {
       <Progress title="64% complete" width="64%" />
       <div className="main-card-wrap">
         <div>
-          <h1 className="form-title">Review</h1>
+          <div className="flex items-center justify-between">
+            <h1 className="form-title">Review</h1>
+            <div className="card-button-wrap">
+              <button
+                className="next-btn active-color form-next-button"
+                onClick={()=>setOpen(true)}
+              >
+                <p className="">Response</p>
+              </button>{" "}
+            </div>
+          </div>
           <p className="form-sub-title">
             Based on your entries, here are the profits and losses that you are
             going to report to the HMRC for the period of April 1, 2024 to June
