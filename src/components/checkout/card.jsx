@@ -298,7 +298,7 @@ const SubmitCard = () => {
           </p>
         </div>
         <div className="mt-[40px] mb-[10px]"></div>
-        {!check && showError && (
+        {showError && (!check || !success) && (
           <p className="archivo text-[16px] text-[#D3984E] text-end">
             Please enter credit card information and accept the Agreement &
             Terms
