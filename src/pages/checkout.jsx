@@ -12,6 +12,7 @@ const CheckOut = () => {
         <img src={bars} />
       </div>
       <Card />
+    
     </div>
   );
 };

@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import buttonArrow from "../../assets/user-info/button-arrow.png";
 import Progress from "../common/progress";
+import discount from "../../assets/discount.svg";
 import { useNavigate } from "react-router-dom";
 
 const stripePromise = loadStripe(
@@ -64,85 +65,153 @@ const CheckoutForm = () => {
     <div>
       <form onSubmit={handleSubmit} className="payment-details-wrap">
         <div className="payment-left-overlay">
-          <div className="one-time-payment">
-            <h6>£ 20</h6>
-            <p>One time payment</p>
+          <h1 className="text-[#003049] jaldi text-[30px] font-bold">
+            Review your cart
+          </h1>
+          <div className="flex flex-col gap-[4px] mt-[9px]">
+            <h1 className="jaldi text-[20px] text-[#003049] font-medium">
+              Tax filing one-time payment
+            </h1>
+            <p
+              className="jaldi text-[20px]"
+              style={{ color: "rgba(0, 48, 73, 0.61)" }}
+            >
+              Period : April 1, 2024 to June 31, 2025
+            </p>
+            <p className="jaldi text-[20px]  text-[#003049]">£12.00</p>
           </div>
-          <div className="total-wrap">
-            <div className="sub-total-wrap">
-              <p>Subtotal</p>
-              <p>16.00</p>
+          <div className="mt-[40px] relative">
+            <img src={discount} className="absolute top-[10px] left-[10px]" />
+            <input
+              placeholder="Discount code"
+              className="text-[rgba(6,38,62,0.34)] rounded-[4px] w-[100%] h-[45px] py-[12px] pr-[12px] pl-[40px] archivo text-[16px] border border-[1px] border-[#C4C4C4]"
+            />
+            <p className="font-bold archivo text-[18px] text-[#0D83C1] absolute top-[10px] right-[10px]">
+              Apply
+            </p>
+          </div>
+          <div className="mt-[48px] flex flex-col gap-[20px]">
+            <div className="flex items-center justify-between">
+              <p
+                className="jaldi text-[22px]"
+                style={{ color: "rgba(6, 38, 62, 0.42)" }}
+              >
+                Subtotal
+              </p>
+              <p
+                className="jaldi text-[22px]"
+                style={{ color: "rgba(6, 38, 62, 0.42)" }}
+              >
+                {" "}
+                £ 16.00
+              </p>
             </div>
-            <div className="sub-total-wrap">
-              <p>VAT</p>
-              <p> 4.00</p>
+            <div className="flex items-center justify-between">
+              <p
+                className="jaldi text-[22px]"
+                style={{ color: "rgba(6, 38, 62, 0.42)" }}
+              >
+                VAT
+              </p>
+              <p
+                className="jaldi text-[22px]"
+                style={{ color: "rgba(6, 38, 62, 0.42)" }}
+              >
+                {" "}
+                £ 4.00
+              </p>
             </div>
-            <div className="amount-bar"></div>
-            <div className="sub-total-wrap">
-              <p>Total</p>
-              <p>£ 20.00</p>
+            <div className="flex items-center justify-between">
+              <p
+                className="jaldi text-[22px]"
+                style={{ color: "rgba(6, 38, 62, 0.42)" }}
+              >
+                Discount
+              </p>
+              <p
+                className="jaldi text-[22px]"
+                style={{ color: "rgba(6, 38, 62, 0.42)" }}
+              >
+                {" "}
+                0
+              </p>
+            </div>
+            <div className="flex items-center justify-between">
+              <p
+                className="jaldi text-[22px]"
+                style={{ color: "rgba(6, 38, 62, 0.42)" }}
+              >
+                Total
+              </p>
+              <p
+                className="jaldi text-[22px]"
+                style={{ color: "rgba(6, 38, 62, 0.42)" }}
+              >
+                {" "}
+                £ 20.00{" "}
+              </p>
             </div>
           </div>
         </div>
         <div className="payment-right-overlay">
-          <h1>Payment details</h1>
-          <div className="payment-input-overlay">
-            <p>Cardholder name</p>
-            <input
-              placeholder="Name on card"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
+          <h1 className="text-[#003049] jaldi text-[30px] font-bold">Pay</h1>{" "}
+          <div>
+            <p
+              className="jaldi text-[20px]"
+              style={{ color: "rgba(0, 48, 73, 0.61)" }}
+            >
+              Email
+            </p>
+            <input className="text-[rgba(6,38,62,0.34)] rounded-[4px] w-[100%] h-[45px] py-[12px] pr-[12px] pl-[12px] archivo text-[16px] border border-[1px] border-[#C4C4C4]" />
           </div>
-          <div className="payment-input-overlay">
-            <p>Email</p>
-            <input
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="payment-card-overlay">
-            <p>Expiry</p>
-            <div className="card-element h-[50px]">
-              <CardElement
-                options={{ style: { base: { fontSize: "16px" } } }}
-              />
+          <div className="mt-[20px]">
+            <p
+              className="jaldi text-[20px]"
+              style={{ color: "rgba(0, 48, 73, 0.61)" }}
+            >
+              Card Information
+            </p>
+            <div className="payment-card-overlay">
+              <div className="card-element h-[50px]">
+                <CardElement
+                  options={{ style: { base: { fontSize: "16px" } } }}
+                />
+              </div>
             </div>
           </div>
-          <div
-            className="payment-input-overlay-terms"
-            style={{ marginTop: "30px" }}
-          >
-            <p className="visibility-none">No Visibility</p>
-            <div className="payment-terms">
-              <input type="checkbox" />
-              <p>
-                I agree to the <span>Agreement & Terms</span> , Find out how we
-                use and protect your data in our <span> Privacy Policy.</span>
+          <div className="mt-[30px]">
+            <p
+              className="jaldi text-[20px]"
+              style={{ color: "rgba(0, 48, 73, 0.61)" }}
+            >
+              Cardholder name
+            </p>
+            <input
+              placeholder="Full name on card"
+              className="text-[rgba(6,38,62,0.34)] rounded-[4px] w-[100%] h-[45px] py-[12px] pr-[12px] pl-[12px] archivo text-[16px] border border-[1px] border-[#C4C4C4]"
+            />
+          </div>
+          <div className="flex items-center gap-[30px] mt-[35px]">
+            <p
+              className="archivo text-[12px] leading-[16px]"
+              style={{ color: "rgba(26, 26, 26, 0.5)" }}
+            >
+              Powered by Stripe{" "}
+            </p>
+            <div className="flex items-center gap-[12px]">
+              <p
+                className="archivo text-[12px] leading-[16px]"
+                style={{ color: "rgba(26, 26, 26, 0.5)" }}
+              >
+                Terms
+              </p>
+              <p
+                className="archivo text-[12px] leading-[16px]"
+                style={{ color: "rgba(26, 26, 26, 0.5)" }}
+              >
+                Privacy
               </p>
             </div>
-          </div>
-          <div className="payment-input-overlay-terms">
-            <p className="visibility-none">No Visibility</p>
-            <div className="payment-terms">
-              <input type="checkbox" />
-              <p>I’d like to receive direct marketing email updates.</p>
-            </div>{" "}
-          </div>
-          <div
-            className="card-button-wrap mt-40"
-            style={{ display: "flex", justifyContent: "end" }}
-          >
-            <button
-              type="submit"
-              className="back form-back-button"
-              disabled={loading}
-            >
-              {loading ? "Processing..." : "Pay"}
-            </button>
           </div>
         </div>
       </form>
@@ -167,6 +236,21 @@ const SubmitCard = () => {
         <Elements stripe={stripePromise}>
           <CheckoutForm />
         </Elements>
+
+        <div className="mt-[40px] flex items-center gap-[12px] justify-center">
+          <input
+            type="checkbox"
+            className="h-[12px] w-[12px] border border-[2px] border-[#FFFFFF]"
+          />
+          <p
+            className="text-center archivo text-[16px] text-[#003049]"
+            style={{ color: "rgba(6, 38, 62, 0.42)" }}
+          >
+            I agree to the <span className="underline">Terms & Conditions</span>{" "}
+            Find out how we use and protect your data in our{" "}
+            <span className="underline">Privacy Policy</span>.
+          </p>
+        </div>
         <div className="card-button-wrap mt-40">
           <button
             className="back form-back-button"
@@ -178,7 +262,7 @@ const SubmitCard = () => {
             className="next-btn active-color form-next-button"
             onClick={() => navigate("/submit")}
           >
-            <p>Next</p>
+            <p>Pay Now</p>
             <img src={buttonArrow} />
           </button>
         </div>
