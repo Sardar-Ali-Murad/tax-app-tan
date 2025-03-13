@@ -42,9 +42,9 @@ export const slice = createSlice({
     handleSetHMRC: (state, action) => {
       state.hmrc = action.payload;
     },
-    handleChangeInCorrectCredentials:(state,action)=>{
-      state.inCorrectCredentials=action.payload
-    }
+    handleChangeInCorrectCredentials: (state, action) => {
+      state.inCorrectCredentials = action.payload;
+    },
   },
   extraReducers: (builder) => {
     // Handle Login
@@ -56,7 +56,7 @@ export const slice = createSlice({
         state.loading = false;
         state.authAddSuccess = true;
         sessionStorage.setItem("nino", payload?.user?.nino);
-        localStorage.setItem("user", JSON.stringify(payload?.user));
+        sessionStorage.setItem("user", JSON.stringify(payload?.user));
         state.user = payload?.user;
         state.inCorrectCredentials = false;
       })
@@ -85,7 +85,7 @@ export const {
   handleResetUser,
   handleSetToken,
   handleSetHMRC,
-  handleChangeInCorrectCredentials
+  handleChangeInCorrectCredentials,
 } = slice.actions;
 
 export default slice.reducer;

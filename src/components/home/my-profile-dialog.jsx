@@ -13,7 +13,7 @@ const MyProfileDialog = ({ setShowMyProfileDialog }) => {
 
   function handleLogout() {
     dispatch(handleResetUser());
-    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
     sessionStorage.removeItem("nino");
     sessionStorage.removeItem("code");
     sessionStorage.removeItem("token");
