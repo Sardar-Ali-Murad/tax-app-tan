@@ -90,6 +90,10 @@ video {
   font-family: "Jaldi", serif;
 }
 
+.ElementsApp, .ElementsApp .InputElement{
+  font-family: "Jaldi", serif !important;
+}
+
 .error {
   color: #d3984e;
   font-family: "Jaldi", serif;

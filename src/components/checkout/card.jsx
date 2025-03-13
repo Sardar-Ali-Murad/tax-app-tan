@@ -17,16 +17,21 @@ const stripePromise = loadStripe(
   "pk_test_51L3igsAX34JgbNaA4c0rd2PAl8EayvBReK9w2M1yp3Ep8Mlz29MkPvMzHgVfS17dGsQ3nVQs9da8kwBtDxm8lx4S00VxEkycWL"
 );
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ setLoading, setSuccess, triggerPayment, success }) => {
   const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [isCardComplete, setIsCardComplete] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleCardChange = (event) => {
+    if (event.complete) {
+      setIsCardComplete(true);
+    }
+  };
+
+  const handlePayment = async () => {
     if (!stripe || !elements) return;
 
     setLoading(true);
@@ -56,14 +61,28 @@ const CheckoutForm = () => {
     if (result.error) {
       navigate("/failure");
     } else if (result.paymentIntent.status === "succeeded") {
-      navigate("/success");
+      navigate("/submit");
     }
     setLoading(false);
   };
 
+  React.useEffect(() => {
+    if (triggerPayment && success) {
+      handlePayment();
+    }
+  }, [triggerPayment]);
+
+  React.useEffect(() => {
+    if (name && email && isCardComplete) {
+      setSuccess(true);
+    } else {
+      setSuccess(false);
+    }
+  }, [name, email, isCardComplete]);
+
   return (
     <div>
-      <form onSubmit={handleSubmit} className="payment-details-wrap">
+      <form className="payment-details-wrap">
         <div className="payment-left-overlay">
           <h1 className="text-[#003049] jaldi text-[30px] font-bold">
             Review your cart
@@ -162,7 +181,11 @@ const CheckoutForm = () => {
             >
               Email
             </p>
-            <input className="text-[rgba(6,38,62,0.34)] rounded-[4px] w-[100%] h-[45px] py-[12px] pr-[12px] pl-[12px] archivo text-[16px] border border-[1px] border-[#C4C4C4]" />
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="text-[rgba(6,38,62,0.34)] rounded-[4px] w-[100%] h-[45px] py-[12px] pr-[12px] pl-[12px] archivo text-[16px] border border-[1px] border-[#C4C4C4]"
+            />
           </div>
           <div className="mt-[20px]">
             <p
@@ -175,6 +198,7 @@ const CheckoutForm = () => {
               <div className="card-element h-[50px]">
                 <CardElement
                   options={{ style: { base: { fontSize: "16px" } } }}
+                  onChange={handleCardChange}
                 />
               </div>
             </div>
@@ -187,6 +211,8 @@ const CheckoutForm = () => {
               Cardholder name
             </p>
             <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="Full name on card"
               className="text-[rgba(6,38,62,0.34)] rounded-[4px] w-[100%] h-[45px] py-[12px] pr-[12px] pl-[12px] archivo text-[16px] border border-[1px] border-[#C4C4C4]"
             />
@@ -221,6 +247,21 @@ const CheckoutForm = () => {
 
 const SubmitCard = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = React.useState(false);
+  const [showError, setShowError] = React.useState(false);
+  const [check, setCheck] = React.useState(false);
+  const [triggerPayment, setTriggerPayment] = React.useState(false);
+
+  React.useEffect(() => {
+    if (check) {
+      setShowError(false);
+    }
+  }, [check]);
+
+  console.log(check);
+  console.log(showError);
+
   return (
     <div className="card-positioning-wrap">
       <Progress title="73% complete" width="73%" />
@@ -234,13 +275,20 @@ const SubmitCard = () => {
           </p>
         </div>
         <Elements stripe={stripePromise}>
-          <CheckoutForm />
+          <CheckoutForm
+            setLoading={setLoading}
+            setSuccess={setSuccess}
+            triggerPayment={triggerPayment}
+            success={success}
+          />
         </Elements>
 
         <div className="mt-[40px] flex items-center gap-[12px] justify-center">
           <input
             type="checkbox"
             className="h-[12px] w-[12px] border border-[2px] border-[#FFFFFF]"
+            value={check}
+            onChange={(e) => setCheck(e.target.value)}
           />
           <p
             className="text-center archivo text-[16px] text-[#003049]"
@@ -251,7 +299,13 @@ const SubmitCard = () => {
             <span className="underline">Privacy Policy</span>.
           </p>
         </div>
-        <div className="card-button-wrap mt-40">
+        <div className="mt-[40px] mb-[10px]"></div>
+        {!check && showError && (
+          <p className="archivo text-[16px] text-[#D3984E] text-end">
+            Please accept the accept the Terms & Conditions before continuing.
+          </p>
+        )}
+        <div className="card-button-wrap">
           <button
             className="back form-back-button"
             onClick={() => navigate("/review")}
@@ -259,10 +313,20 @@ const SubmitCard = () => {
             Back
           </button>
           <button
-            className="next-btn active-color form-next-button"
-            onClick={() => navigate("/submit")}
+            className={`next-btn active-color form-next-button ${
+              !success && "opacity-[.5]"
+            } ${!success ? "cursor-not-allowed" : "pointer"}`}
+            onClick={() => {
+              if (!success) {
+                setShowError(true);
+              } else {
+                setTriggerPayment(true);
+              }
+            }}
           >
-            <p>Pay Now</p>
+            <p className={` ${!success ? "cursor-not-allowed" : "pointer"}`}>
+              {loading ? "Loading..." : "Pay Now"}
+            </p>
             <img src={buttonArrow} />
           </button>
         </div>

@@ -405,6 +405,10 @@
     align-items: center;
     gap: 5px;
   }
+ 
+  .ElementsApp, .ElementsApp .InputElement{
+    font-family: "Jaldi", serif !important;
+  }
   
   @media screen and (max-width: 900px) {
     .card-positioning-wrap {

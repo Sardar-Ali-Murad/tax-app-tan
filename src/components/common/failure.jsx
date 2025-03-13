@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Failure = () => {
   return (
@@ -7,7 +7,12 @@ const Failure = () => {
         <div className="icon">&#10060;</div>
         <h1>Payment Failed!</h1>
         <p>Oops! Something went wrong with your payment. Please try again.</p>
-        <button className='buton' onClick={() => window.location.href = '/'}>Try Again</button>
+        <button
+          className="buton"
+          onClick={() => (window.location.href = "/checkout")}
+        >
+          Try Again
+        </button>
       </div>
     </div>
   );
