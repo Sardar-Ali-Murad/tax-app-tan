@@ -4,9 +4,11 @@ import progress from "../../assets/form/progress.png";
 import taxArrow from "../../assets/form/tax-arrow.png";
 import Progress from "../common/progress";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Card = () => {
   const navigate = useNavigate();
+  const { hmrc } = useSelector((state) => state?.auth);
   return (
     <div className="card-positioning-wrap">
       <Progress title="64% complete" width="64%" />
@@ -29,12 +31,24 @@ const Card = () => {
               </div>
               <div className="img-wrap">
                 <img src={progress} />
-                <h1>£ 45,543 </h1>
+                <h1>
+                  £{" "}
+                  {hmrc?.calculation?.taxCalculation?.incomeTax
+                    ?.totalTaxableIncome -
+                    hmrc?.calculation?.taxCalculation?.incomeTax
+                      ?.payPensionsProfit?.incomeTaxAmount}{" "}
+                </h1>
               </div>
             </div>
             <div className="tax-due-wrap">
               <h1> Total tax due</h1>
-              <h1>£ 0.00</h1>
+              <h1>
+                £{" "}
+                {
+                  hmrc?.calculation?.taxCalculation?.incomeTax
+                    ?.payPensionsProfit?.incomeTaxAmount
+                }
+              </h1>
               <div className="para-wrap">
                 <p>Learn how to reduce this tax liability</p>
                 <img src={taxArrow} />

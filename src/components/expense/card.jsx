@@ -12,14 +12,14 @@ const Card = () => {
     {
       id: 1,
       name: "Bank fees",
-      selected: true,
-      locked: false,
+      selected: false,
+      locked: true,
     },
     {
       id: 2,
       name: "Directors salaries",
-      selected: true,
-      locked: false,
+      selected: false,
+      locked: true,
     },
     {
       id: 3,
@@ -42,13 +42,13 @@ const Card = () => {
     {
       id: 6,
       name: "Employers NI",
-      selected: false,
+      selected: true,
       locked: false,
     },
     {
       id: 7,
       name: "Entertaining",
-      selected: false,
+      selected: true,
       locked: false,
     },
     {
@@ -192,7 +192,10 @@ const Card = () => {
               ?.map((expense, ind) => {
                 return (
                   <div className="expense-item" key={ind}>
-                    <label className="light-label archivo" style={{color:"#06263E"}}>
+                    <label
+                      className="light-label archivo"
+                      style={{ color: "#06263E" }}
+                    >
                       {expense?.name}
                     </label>
                     <div className="final-form-input-wrap">
@@ -206,10 +209,13 @@ const Card = () => {
               className="add-expense-wrap pointer"
               onClick={() => setShowExpenseDialog(true)}
             >
-              <div className="h-[18px] w-[18px] bg-[#003049] flex justify-center items-center" style={{borderRadius:"50%"}}>
+              <div
+                className="h-[18px] w-[18px] bg-[#003049] flex justify-center items-center"
+                style={{ borderRadius: "50%" }}
+              >
                 <img src={cross} />
               </div>
-              <p style={{color:"#06263E"}}>add/ remove expense category</p>
+              <p style={{ color: "#06263E" }}>add/ remove expense category</p>
             </div>
           </div>
         </div>

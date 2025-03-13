@@ -20,19 +20,22 @@ const ExpenseDialog = ({ items, setItems, setShowExpenseDialog }) => {
         {items?.map((item, ind) => {
           return (
             <div key={ind} className="flex items-center">
-              {item?.selected ? (
+              {item?.locked && <img src={lock} className="pointer" />}
+              {item?.selected && item?.locked === false && (
                 <img
                   src={plus}
                   className="pointer"
                   onClick={() => handleClick(item?.id)}
                 />
-              ) : (
+              )}
+              {!item?.selected && item?.locked === false && (
                 <img
                   src={minus}
                   className="pointer"
                   onClick={() => handleClick(item?.id)}
                 />
               )}
+
               <p
                 className={`archivo ${
                   item?.selected ? "text-[#06263E]" : "text-[#5E7D8C]"
