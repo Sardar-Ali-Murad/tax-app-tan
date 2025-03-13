@@ -8,6 +8,7 @@ const initialState = {
   user: JSON.parse(sessionStorage.getItem("user")) || {},
   token: sessionStorage.getItem("token") || "",
   hmrc: JSON.parse(sessionStorage.getItem("hmrc")) || {},
+  inCorrectCredentials: false,
 };
 
 export const setupLogin = createAsyncThunk(
@@ -41,6 +42,9 @@ export const slice = createSlice({
     handleSetHMRC: (state, action) => {
       state.hmrc = action.payload;
     },
+    handleChangeInCorrectCredentials:(state,action)=>{
+      state.inCorrectCredentials=action.payload
+    }
   },
   extraReducers: (builder) => {
     // Handle Login
@@ -54,10 +58,11 @@ export const slice = createSlice({
         sessionStorage.setItem("nino", payload?.user?.nino);
         sessionStorage.setItem("user", JSON.stringify(payload?.user));
         state.user = payload?.user;
+        state.inCorrectCredentials = false;
       })
       .addCase(setupLogin.rejected, (state) => {
         state.loading = false;
-        toast.error("An error has occurred. Please try again later.");
+        state.inCorrectCredentials = true;
       });
     // Handle Register
     builder
@@ -80,6 +85,7 @@ export const {
   handleResetUser,
   handleSetToken,
   handleSetHMRC,
+  handleChangeInCorrectCredentials
 } = slice.actions;
 
 export default slice.reducer;

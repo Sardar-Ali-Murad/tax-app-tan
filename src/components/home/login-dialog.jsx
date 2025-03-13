@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setupLogin,
   resetAuthAddSuccess,
+  handleChangeInCorrectCredentials,
 } from "../../global-redux/reducers/auth/slice";
 import "../form/index.css";
 
@@ -20,7 +21,9 @@ const LoginDialog = ({
   setRegisterDialog,
 }) => {
   const dispatch = useDispatch();
-  const { loading, authAddSuccess } = useSelector((state) => state?.auth);
+  const { loading, authAddSuccess, inCorrectCredentials } = useSelector(
+    (state) => state?.auth
+  );
 
   const formik = useFormik({
     initialValues: {
@@ -48,6 +51,13 @@ const LoginDialog = ({
       setShowLoginDialog(false);
     }
   }, [authAddSuccess]);
+
+  React.useEffect(() => {
+    if (inCorrectCredentials) {
+      setInCorrectLoginDialog(true);
+      dispatch(handleChangeInCorrectCredentials(false));
+    }
+  }, [inCorrectCredentials]);
 
   return (
     <div className="login-dialog-wrap">

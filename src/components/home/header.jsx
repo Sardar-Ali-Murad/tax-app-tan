@@ -33,7 +33,11 @@ const Header = ({ setShowLoginDialog, setShowMyProfileDialog }) => {
           //   onClick={() => setShowMyProfileDialog(true)}
           // />'
 
-          <p className="pointer" onClick={() => setShowMyProfileDialog(true)}>
+          <p
+            className="pointer"
+            style={{ color: "grey" }}
+            onClick={() => setShowMyProfileDialog(true)}
+          >
             {user?.username}
           </p>
         ) : (
