@@ -66,7 +66,7 @@ const Card = () => {
         <div className="card-button-wrap mt-40">
           <button
             className="back form-back-button"
-            onClick={() => navigate("/verify-account")}
+            onClick={() => navigate("/checkout")}
           >
             Back
           </button>
